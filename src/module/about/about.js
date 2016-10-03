@@ -1,2 +1,2 @@
-'use strict';
-import './css/about.css';
+'use strict'
+import './css/about.css'
