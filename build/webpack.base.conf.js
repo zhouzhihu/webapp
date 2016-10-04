@@ -5,7 +5,11 @@ var projectRoot = path.resolve(__dirname, '../')
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-  entry: utils.getEntries('./src/module/**/*.js'),
+  //entry: utils.getEntries('./src/module/**/*.js'),
+  entry: {
+    app: './src/module/index/index.js',
+    vendor: ['vue', 'vue-router']
+  },
   output: {
     path: config.build.assetsRoot,
     publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
@@ -15,6 +19,7 @@ module.exports = {
     extensions: ['', '.js'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
+      'vue': 'vue/dist/vue.js',
       'src': path.resolve(__dirname, '../src'),
       'components': path.resolve(__dirname, '../src/js/components')
     }
@@ -24,18 +29,20 @@ module.exports = {
   },
   module: {
     preLoaders: [
+      /*
       {
         test: /\.vue$/,
         loader: 'eslint',
         include: projectRoot,
         exclude: /node_modules/
-      },
-      {
+      }
+       ,{
         test: /\.js$/,
         loader: 'eslint',
         include: projectRoot,
         exclude: /node_modules/
       }
+      */
     ],
     loaders: [
       {
@@ -51,6 +58,10 @@ module.exports = {
       {
         test: /\.json$/,
         loader: 'json'
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader'
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
