@@ -15,7 +15,4 @@ npm run dev
 
 # build for production
 npm run build
-
-# serve in production mode
-npm start
 ```
