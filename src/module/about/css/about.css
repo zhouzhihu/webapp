@@ -1,3 +1,18 @@
-.about{
-    color:green;
+.about {
+    color: #2c3e50;
+    margin-top: -100px;
+    max-width: 720px;
+    font-family: Source Sans Pro, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.about a {
+    color: #42b983;
+    text-decoration: none;
+}
+
+.about .logo {
+    width: 300px;
+    height: 100px;
+    background: url('../img/ico-logo.jpg');
 }
