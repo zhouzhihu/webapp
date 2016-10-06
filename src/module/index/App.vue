@@ -5,11 +5,11 @@
         <router-link to="/" exact>
           <img class="logo" src="./img/logo.png" alt="logo">
         </router-link>
-        <router-link to="/">home</router-link>
-        <router-link to="/about">about</router-link>
-        <a class="github" href="https://github.com/zhouzhihu/webapp" target="_blank">
-          Built with Vue.js
-        </a>
+        <router-link to="/">主页</router-link>
+        <router-link to="/about">关于我</router-link>
+        <span class="github">
+          追求卓越，成功就会在不经意间追上你！
+        </span>
       </div>
     </div>
     <transition name="fade" mode="out-in">
