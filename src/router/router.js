@@ -16,6 +16,10 @@ export default new Router({
       component: Home,
       children: [
         {
+          path : '',
+          redirect: '/Home/A'
+        },
+        {
         path : 'A',
         component: createListView('A')
         }
