@@ -48,6 +48,7 @@
     "url-loader": "^0.5.7",
     "vue-loader": "^9.5.1",
     "vue-style-loader": "^1.0.0",
+    "vue-progressbar":"^0.4.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.1.2",
     "webpack": "^1.13.2",
