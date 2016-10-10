@@ -9,6 +9,12 @@
     },
     created : function(){
       this.about = "created"
+    },
+    beforeMount(){
+      this.$Progress.start()
+    },
+    mounted(){
+      this.$Progress.finish()
     }
   }
 </script>
