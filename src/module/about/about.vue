@@ -5,7 +5,7 @@
 <script>
   export default {
     data(){
-      return {about : 'about1'}
+      return {about : 'about'}
     },
     created : function(){
       this.about = "created"
