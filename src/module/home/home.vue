@@ -3,6 +3,7 @@
       <div class="news-list-nav">
         <div class="nav">
           <router-link to="/Home/A">【CSDN】</router-link>
+            |
           <router-link to="/Home/B">【知乎】</router-link>
         </div>
       </div>
@@ -46,7 +47,7 @@
         max-width 800px
         box-sizing border-box;
         margin 0px auto;
-        text-align left
+        text-align center
         a
           margin 0 0.2em
           font-size 12px

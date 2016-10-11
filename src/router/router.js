@@ -15,7 +15,9 @@ export default new Router({
       path: '/Home',
       component: Home,
       children: [
-        { path : 'A',component: createListView('A') }
+        { path : '', redirect: '/Home/A'},
+        { path : 'A',component: createListView('A') },
+        { path : 'B',component: createListView('B') }
       ]
     },
     { path: '/About', component: About },
