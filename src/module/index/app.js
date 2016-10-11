@@ -17,7 +17,14 @@ const app = new Vue({
     }
   },
   methods : {
-    toggleBar: function(){
+    showBar: function(){
+      window.document.body.classList.add = 'scroll-stop'
+      window.document.querySelector('html').classList.add = 'scroll-stop'
+      this.showSidebar = !this.showSidebar
+    },
+    hiddenBar () {
+      window.document.body.className = ''
+      window.document.querySelector('html').className = ''
       this.showSidebar = !this.showSidebar
     }
   },

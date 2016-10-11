@@ -89,10 +89,10 @@
     font-style:normal
     color: #ffffff
   .show-sidebar
-    transform: translateX(290px)
+    -webkit-transform: translateX(290px)
   .sidebar-box
     position: fixed
-    transform: translateZ(0)
+    -webkit-transform: translateZ(0)
     height: 100%
     overflow: auto
     width: 290px
@@ -102,7 +102,7 @@
     bottom: 0
     transition: all .3s ease
     &.show-sidebar
-      transform: translateX(290px)
+      -webkit-transform: translateX(290px)
     .swiper-slide
       font-size: 15px
       height: auto
