@@ -41,7 +41,7 @@
       top 55px
       left 0
       right 0
-      z-index 998
+      z-index 3
       box-shadow 0 1px 2px rgba(0,0,0,.1)
       .nav
         max-width 800px
