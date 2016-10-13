@@ -1,8 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from '../../router/router.js'
+import router from '../../router'
+import store from '../../store'
+import { sync } from 'vuex-router-sync'
 import VueProgressBar from 'vue-progressbar'
 import Sidebar from '../../components/Sidebar.vue'
+
+sync(store, router)
 
 Vue.use(VueProgressBar, {
   color: 'rgb(119, 182, 255)',
@@ -31,6 +35,7 @@ const app = new Vue({
   components: {
     Sidebar
   },
+  store,
   router,
   ...App
 }).$mount("#app")

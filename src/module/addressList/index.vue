@@ -2,9 +2,8 @@
     <div class="news-view">
       <div class="news-list-nav">
         <div class="nav">
-          <router-link to="/Home/A">【CSDN】</router-link>
-            |
-          <router-link to="/Home/B">【知乎】</router-link>
+          <router-link to="/AddressList/all">所有联系人</router-link>
+          <router-link to="/AddressList/recently">最近联系人</router-link>
         </div>
       </div>
       <transition name="fade" mode="out-in">
@@ -15,11 +14,6 @@
 
 <script>
   export default {
-    data(){
-      return {
-        home : 'home'
-      }
-    },
     beforeMount(){
       this.$Progress.start()
     },
@@ -28,7 +22,7 @@
     }
   }
 </script>
-<style lang="stylus">
+<style lang="stylus" scoped>
     .news-view
       padding-top 45px
     .news-list-nav, .news-list
@@ -49,8 +43,12 @@
         margin 0px auto;
         text-align center
         a
+          color:#ccc
           margin 0 0.2em
           font-size 12px
+        .router-link-active
+          color #000
+          font-weight 400
         .disabled
           color #ccc
 </style>

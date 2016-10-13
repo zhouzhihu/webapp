@@ -1,8 +1,8 @@
-import ItemList from '../../components/ItemList.vue'
+import ItemList from './ItemList.vue'
 
 export default function createListView (type) {
   return {
-    name : 'stories-view',
+    name : `${type}-stories-view`,
     render (h) {
       return h(ItemList, { props: { type }})
     }

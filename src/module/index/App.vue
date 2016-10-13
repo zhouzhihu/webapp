@@ -3,8 +3,8 @@
     <div class="header">
       <div class="inner">
         <img class="logo" src="./img/logo.png" alt="logo" @click="showBar">
-        <router-link to="/Home">主页</router-link>
-        <router-link to="/about">关于我</router-link>
+        <router-link to="/AddressList">联系人</router-link>
+        <router-link to="/About">关于我</router-link>
         <span class="github">
           追求卓越，成功就会在不经意间追上你！
         </span>
