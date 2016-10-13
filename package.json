@@ -15,7 +15,8 @@
     "vue-server-renderer": "^2.0.0",
     "vuex": "^2.0.0",
     "vuex-router-sync": "^3.0.0",
-    "html-loader": "^0.4.4"
+    "wilddog": "^2.1.0",
+    "wildvue": "^1.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
@@ -39,6 +40,7 @@
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "html-loader": "^0.4.4",
     "function-bind": "^1.0.2",
     "html-webpack-plugin": "^2.8.1",
     "http-proxy-middleware": "^0.17.2",
