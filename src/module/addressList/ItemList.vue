@@ -14,6 +14,9 @@
     components : {
       Item
     },
+    props: {
+      type: String
+    },
     data(){
       const isInitialRender = !this.$root._isMounted
       return {
@@ -24,7 +27,7 @@
       addressList: 'addressList'
     }),
     created () {
-      this.$store.dispatch('FETCH_AL_DATA', this.$route.params.type)
+      this.$store.dispatch('FETCH_AL_DATA', this.type)
     }
   }
 </script>

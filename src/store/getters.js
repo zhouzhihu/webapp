@@ -1,3 +1,3 @@
-export const addressList = state => {
+export const allAddress = state => {
     return state.addressList.items
 }

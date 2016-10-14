@@ -23,7 +23,7 @@ export default {
   getALByType : (type, cb) => {
     var addressLists = [];
     _addressList.forEach(address =>{
-      if(address.type && type == address.type) addressLists.push(address)
+      if((address.type && type == address.type) || "all" == type) addressLists.push(address)
     })
     setTimeout(() => cb(addressLists), 1000);
   }
