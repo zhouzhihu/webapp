@@ -18,13 +18,13 @@ const _addressList = [
 
 export default {
   getAL : (cb) => {
-    setTimeout(() => cb(_addressList), 1000)
+    setTimeout(() => cb(_addressList), 2000)
   },
   getALByType : (type, cb) => {
     var addressLists = [];
     _addressList.forEach(address =>{
       if((address.type && type == address.type) || "all" == type) addressLists.push(address)
     })
-    setTimeout(() => cb(addressLists), 1000);
+    setTimeout(() => cb(addressLists), 2000);
   }
 }
