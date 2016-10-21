@@ -1,7 +1,7 @@
 <template>
   <li class="news-item">
-    <span class="score" v-on:click="clickItem" v-if="!active"><img src='../../assets/favorite-unactive.png'></span>
-    <span class="score" v-on:click="clickItem" v-if="active"><img src='../../assets/favorite-active.png'></span>
+    <span class="score" v-on:click="clickItem" v-if="!active">不收藏</span>
+    <span class="score" v-on:click="clickItem" v-if="active">收藏</span>
     <div class="title">
       {{item.name}}：{{item.desc}}
     </div>

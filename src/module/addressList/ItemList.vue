@@ -2,7 +2,7 @@
     <div class="news-list">
       <Spinner :show="loading"></Spinner>
       <ul :show="!loading">
-        <Item v-for="item in addressList" :key="item.id" :item="item"></Item>
+        <Item v-for="item in addressList" :key="item.id" :item="item" :type="type"></Item>
       </ul>
     </div>
 </template>
