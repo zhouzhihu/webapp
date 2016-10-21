@@ -41,10 +41,13 @@ export default {
       border-bottom 1px solid #eee
       padding: 5px
     .score
+      color #ff6600
+      font-size 1.1em
+      font-weight 700
       position absolute
-      cursor pointer
       top 50%
-      left 30px
+      left 0
+      width 80px
       text-align center
       margin-top -10px
     .meta, .host
