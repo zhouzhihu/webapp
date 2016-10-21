@@ -17,7 +17,7 @@ export default new Router({
       children: [
         { path : '', redirect: '/AddressList/all'},
         { path : '/AddressList/all',component: createListView('all') },
-        { path : '/AddressList/recently',component: createListView('recently') }
+        { path : '/AddressList/favorite',component: createListView('favorite') }
       ]
     },
     { path: '/About', component: About },

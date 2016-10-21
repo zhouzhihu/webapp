@@ -1,6 +1,7 @@
 <template>
   <li class="news-item">
-    <span class="score">{{item.id}}</span>
+    <span class="score" v-on:click="clickItem" v-if="!active"><img src='../../assets/favorite-unactive.png'></span>
+    <span class="score" v-on:click="clickItem" v-if="active"><img src='../../assets/favorite-active.png'></span>
     <div class="title">
       {{item.name}}：{{item.desc}}
     </div>
@@ -15,7 +16,17 @@
 <script>
 export default {
   name: 'item',
-  props: ['item']
+  props: ['item', 'type'],
+  data(){
+    return {
+      active : (this.item.favorite == "true" || this.type == 'favorite') ? true : false
+    }
+  },
+  methods: {
+    clickItem : function(){
+      this.active = !this.active
+    }
+  }
 }
 </script>
 
@@ -30,13 +41,10 @@ export default {
       border-bottom 1px solid #eee
       padding: 5px
     .score
-      color #ff6600
-      font-size 1.1em
-      font-weight 700
       position absolute
+      cursor pointer
       top 50%
-      left 0
-      width 80px
+      left 30px
       text-align center
       margin-top -10px
     .meta, .host

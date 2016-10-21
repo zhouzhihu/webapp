@@ -3,7 +3,7 @@
       <div class="news-list-nav">
         <div class="nav">
           <router-link to="/AddressList/all">所有联系人</router-link>
-          <router-link to="/AddressList/recently">最近联系人</router-link>
+          <router-link to="/AddressList/favorite">我收藏的联系人</router-link>
         </div>
       </div>
       <transition name="fade" mode="out-in">
@@ -19,6 +19,16 @@
     },
     mounted(){
       this.$Progress.finish()
+    },
+    data(){
+      return {
+        loading: false
+      }
+    },
+    computed: {
+      activeType(){
+        return this.$store.state.addressList.activeType
+      }
     }
   }
 </script>

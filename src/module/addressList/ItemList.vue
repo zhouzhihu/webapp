@@ -2,7 +2,7 @@
     <div class="news-list">
       <Spinner :show="loading"></Spinner>
       <ul :show="!loading">
-        <Item v-for="item in addressList" :key="item.id" :item="item"></Item>
+        <Item v-for="item in addressList" :key="item.id" :item="item" :type="type"></Item>
       </ul>
     </div>
 </template>
@@ -11,6 +11,8 @@
   import { mapGetters, mapActions } from 'vuex'
   import Item from './Item.vue'
   import Spinner from '../../components/Spinner.vue'
+  import {getALByType, watchList} from '../../api/addressList'
+
   export default {
     name: 'item-list',
     components : {
@@ -22,17 +24,15 @@
     },
     data(){
       return {
-        loading: false
+        loading: false,
+        addressList: []
       }
     },
-    computed: {
-      addressList : function(){return this.$store.getters['addressList']}
-    },
-    created () {
+    beforeMount(){
       this.loading = true
-      this.$store.dispatch('FETCH_AL_DATA', {
-        type : this.type,
-        callback : () => this.loading = false
+      this.unwatch = watchList(this.type, snapshot =>{
+        this.addressList = snapshot
+        this.loading = false
       })
     }
   }
