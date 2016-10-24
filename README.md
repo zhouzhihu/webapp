@@ -17,6 +17,8 @@
 
 > [vue-router](https://github.com/vuejs/vue-router)
 
+> [vuex](https://github.com/vuejs/vuex)
+
 > [webpack](http://webpack.github.io/docs/)
 
 > [es6-babel](https://babeljs.io/docs/learn-es2015/)
