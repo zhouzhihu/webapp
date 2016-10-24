@@ -1,7 +1,7 @@
 <template>
   <li class="news-item">
-    <span class="score" v-on:click="clickItem" v-if="!active">不收藏</span>
-    <span class="score" v-on:click="clickItem" v-if="active">收藏</span>
+    <span class="score" v-on:click="clickItem" v-if="active"><img src="../../assets/img/favorite-unactive.png"></span>
+    <span class="score" v-on:click="clickItem" v-if="!active"><img src="../../assets/img/favorite-active.png"></span>
     <div class="title">
       {{item.name}}：{{item.desc}}
     </div>
@@ -12,8 +12,8 @@
     </div>
   </li>
 </template>
-
 <script>
+  import {toggleFavorite} from '../../api/addressList'
 export default {
   name: 'item',
   props: ['item', 'type'],
@@ -25,6 +25,7 @@ export default {
   methods: {
     clickItem : function(){
       this.active = !this.active
+      toggleFavorite(this.type, this.item.id)
     }
   }
 }

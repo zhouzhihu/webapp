@@ -19,8 +19,16 @@ export function watchList(type, cb){
   })
 }
 
-export function getAById(type, id){
-  wilddogApp.sync().ref(type+"/"+id).once("value", snapshot =>{
-    alert(snapshot.val());
+function getAById(type, id){
+  return new Promise((resolve, reject) => {
+    wilddogApp.sync().ref(`${type}/${id}`).once("value", snapshot =>{
+      resolve(snapshot.val());
+    }, reject)
+  })
+}
+
+export function toggleFavorite(type, id){
+  getAById(type, id).then(addressList =>{
+
   })
 }
