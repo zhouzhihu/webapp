@@ -1,7 +1,7 @@
 <template>
   <li class="news-item">
-    <span class="score" v-on:click="clickItem" v-if="active"><img src="../../assets/img/favorite-unactive.png"></span>
-    <span class="score" v-on:click="clickItem" v-if="!active"><img src="../../assets/img/favorite-active.png"></span>
+    <span class="score" @click="clickItem" v-if="!active"><img src="../../assets/img/favorite-unactive.png"></span>
+    <span class="score" @click="clickItem" v-if="active"><img src="../../assets/img/favorite-active.png"></span>
     <div class="title">
       {{item.name}}：{{item.desc}}
     </div>
@@ -13,22 +13,34 @@
   </li>
 </template>
 <script>
-  import {toggleFavorite} from '../../api/addressList'
-export default {
-  name: 'item',
-  props: ['item', 'type'],
-  data(){
-    return {
-      active : (this.item.favorite == "true" || this.type == 'favorite') ? true : false
-    }
-  },
-  methods: {
-    clickItem : function(){
-      this.active = !this.active
-      toggleFavorite(this.type, this.item.id)
+  import emitter from '../../mixins/emitter'
+
+  export default {
+    name: 'item',
+    componentName: 'item',
+    mixins : [emitter],
+    props: {
+      item : {
+        type : Object,
+        default : []
+      },
+      type : {
+        type : String,
+        default : ''
+      }
+    },
+    data(){
+      return {
+        active : this.item.favorite == "true" ? true : false
+      }
+    },
+    methods: {
+      clickItem : function(){
+        this.active = !this.active
+        this.dispatch("item-list", "item-click", this.type, this.item.id, this.active)
+      }
     }
   }
-}
 </script>
 
 <style lang="stylus">

@@ -11,10 +11,11 @@
   import { mapGetters, mapActions } from 'vuex'
   import Item from './Item.vue'
   import Spinner from '../../components/Spinner.vue'
-  import {getALByType, watchList} from '../../api/addressList'
+  import {watchList, toggleFavorite} from '../../api/addressList'
 
   export default {
     name: 'item-list',
+    componentName: 'item-list',
     components : {
       Item,
       Spinner
@@ -33,6 +34,12 @@
       this.unwatch = watchList(this.type, snapshot =>{
         this.addressList = snapshot
         this.loading = false
+      })
+    },
+    mounted(){
+      this.$on("item-click", (...parames) => {
+        let [type, id, active] = parames;
+        toggleFavorite(type, id, active)
       })
     }
   }

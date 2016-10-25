@@ -19,16 +19,30 @@ export function watchList(type, cb){
   })
 }
 
-function getAById(type, id){
+function getAByType(type){
   return new Promise((resolve, reject) => {
-    wilddogApp.sync().ref(`${type}/${id}`).once("value", snapshot =>{
+    wilddogApp.sync().ref(`${type}`).once("value", snapshot =>{
       resolve(snapshot.val());
     }, reject)
   })
 }
 
-export function toggleFavorite(type, id){
-  getAById(type, id).then(addressList =>{
+function setAByType(type, addressList){
+  wilddogApp.sync().ref(`${type}`).update(addressList)
+}
 
+export function toggleFavorite(type, id, active){
+  getAByType(type).then(addressList =>{
+    for(let address of addressList){
+      if(id == address.id){
+        if(active)
+            address.favorite = "true"
+        else
+            address.favorite = "false"
+      }
+    }
+    return addressList
+  }).then(addressList => {
+    setAByType(type, addressList);
   })
 }
