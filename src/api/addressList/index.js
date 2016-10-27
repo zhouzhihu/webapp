@@ -33,12 +33,12 @@ function setAByType(type, addressList){
 
 export function toggleFavorite(type, id, active){
   return getAByType(type).then(addressList =>{
-    for(let address of addressList){
-      if(id == address.id){
+    for(let i = 0;i < addressList.length; i++){
+      if(id == addressList[i].id){
         if(active)
-            address.favorite = "true"
+          addressList[i].favorite = "true"
         else
-            address.favorite = "false"
+          addressList[i].favorite = "false"
       }
     }
     return addressList
