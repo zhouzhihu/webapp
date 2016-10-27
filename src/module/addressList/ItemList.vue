@@ -8,10 +8,15 @@
 </template>
 
 <script>
+  import Vue from 'vue'
   import { mapGetters, mapActions } from 'vuex'
   import Item from './Item.vue'
   import Spinner from '../../components/Spinner.vue'
   import {watchList, toggleFavorite} from '../../api/addressList'
+  import {Message} from 'element-ui'
+  import 'element-ui/lib/theme-default/message.css'
+
+  Vue.component(Message.name, Message);
 
   export default {
     name: 'item-list',
@@ -39,7 +44,12 @@
     mounted(){
       this.$on("item-click", (...parames) => {
         let [type, id, active] = parames;
-        toggleFavorite(type, id, active)
+        toggleFavorite(type, id, active).then(() => {
+          if(active)
+            Message({message : "收藏成功!", duration : 1000})
+          else
+            Message({message : "取消收藏成功！", duration : 1000})
+        })
       })
     }
   }
