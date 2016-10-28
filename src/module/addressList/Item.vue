@@ -51,7 +51,7 @@
     position relative
     line-height 20px
     .title
-      border-bottom 1px solid #eee
+      border-bottom 1px solid #58B7FF
       padding: 5px
     .score
       color #ff6600
