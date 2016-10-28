@@ -43,7 +43,7 @@
     text-decoration none
 
   .header
-    background-color #ff6600
+    background-color #20A0FF
     position fixed
     z-index 2
     top 0

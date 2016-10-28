@@ -108,7 +108,7 @@
   .sidebar-box{
     .sidebar-header{
       padding: 15px;
-      background: #00A2EA;
+      background: #20A0FF;
       .user{
         display: flex;
         flex-direction: row;
