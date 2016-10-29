@@ -3,6 +3,10 @@
 
 > 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
 
+> 截图
+
+![print](./src/assets/demo/about.png)
+
 ---
 
 基于webpack+Vue2.0搭建webapp，结合[野狗](https://www.wilddog.com/)实现实时云通信，并自动构建在[DaoCloud](https://www.daocloud.io/)上！
