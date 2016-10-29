@@ -42,6 +42,7 @@ npm run build
 
 <p align="center">
     <img src="http://ofsury53e.bkt.clouddn.com/addressList.jpg">
+    <img src="http://ofsury53e.bkt.clouddn.com/about.jpg">
 </p>
 
 ---
