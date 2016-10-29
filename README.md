@@ -40,6 +40,8 @@ npm run build
 
 ---
 
-![print](./src/assets/demo/about.PNG)
+<p align="center">
+    <img src="http://ofsury53e.bkt.clouddn.com/addressList.jpg">
+</p>
 
 ---
