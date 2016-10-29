@@ -47,17 +47,18 @@
       right 0
       z-index 3
       box-shadow 0 1px 2px rgba(0,0,0,.1)
+      background-color #58B7FF
       .nav
         max-width 800px
         box-sizing border-box;
-        margin 0px auto;
+        margin 0px auto
         text-align center
         a
           color:#ccc
           margin 0 0.2em
           font-size 12px
         .router-link-active
-          color #000
+          color #fff
           font-weight 400
         .disabled
           color #ccc
