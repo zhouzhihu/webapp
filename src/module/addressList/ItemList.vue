@@ -58,7 +58,6 @@
 <style lang="stylus">
   .news-list
     position absolute
-    margin 30px 0
     width 100%
     transition all .5s cubic-bezier(.55,0,.1,1)
     ul
