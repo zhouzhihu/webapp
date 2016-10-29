@@ -1,7 +1,8 @@
 <template>
   <li class="news-item">
-    <span class="score" @click="clickItem" v-if="!active"><img src="../../assets/img/favorite-unactive.png"></span>
-    <span class="score" @click="clickItem" v-if="active"><img src="../../assets/img/favorite-active.png"></span>
+    <span class="score" @click="clickItem">
+      <i :class="favorite"></i>
+    </span>
     <div class="title">
       {{item.name}}：{{item.desc}}
     </div>
@@ -14,6 +15,8 @@
 </template>
 <script>
   import emitter from '../../mixins/emitter'
+  import {Icon} from 'element-ui'
+  import 'element-ui/lib/theme-default/icon.css'
 
   export default {
     name: 'item',
@@ -39,6 +42,11 @@
         this.active = !this.active
         this.dispatch("item-list", "item-click", this.type, this.item.id, this.active)
       }
+    },
+    computed:{
+      favorite : function(){
+        return this.active ? "el-icon-star-on" : "el-icon-star-off"
+      }
     }
   }
 </script>
@@ -54,9 +62,8 @@
       border-bottom 1px solid #58B7FF
       padding: 5px
     .score
-      color #ff6600
-      font-size 1.1em
-      font-weight 700
+      color #58B7FF
+      font-size 1.5em
       position absolute
       top 50%
       left 0

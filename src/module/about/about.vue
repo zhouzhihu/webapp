@@ -68,10 +68,10 @@
         height 50px
         border-bottom 1px solid #eee
         i
-          color #8492a6;
-          margin 15px 10px;
-          font-size 1.5em;
-          vertical-align middle;
+          color #58B7FF
+          margin 15px 10px
+          font-size 1.5em
+          vertical-align middle
         span
           font-size 12px
 </style>
