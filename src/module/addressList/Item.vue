@@ -34,7 +34,7 @@
     },
     data(){
       return {
-        active : this.item.favorite == "true" ? true : false
+        active : this.item.favorite ? true : false
       }
     },
     methods: {

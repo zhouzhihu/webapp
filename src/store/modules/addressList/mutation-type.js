@@ -1,2 +1,3 @@
 export const SET_AL_ACTIVE_TYPE = "SET_AL_ACTIVE_TYPE"
 export const SET_AL_ITEMS = "SET_AL_ITEMS"
+export const FETCH_ADDRESS_LIST = "FETCH_ADDRESS_LIST";

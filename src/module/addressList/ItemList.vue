@@ -15,6 +15,7 @@
   import {watchList, toggleFavorite} from '../../api/addressList'
   import {Message} from 'element-ui'
   import 'element-ui/lib/theme-default/message.css'
+  import * as types from '../../store/modules/addressList/mutation-type'
 
   Vue.component(Message.name, Message);
 
@@ -36,8 +37,8 @@
     },
     beforeMount(){
       this.loading = true
-      this.unwatch = watchList(this.type, snapshot =>{
-        this.addressList = snapshot
+      this.$store.dispatch(types.FETCH_ADDRESS_LIST, this.type).then(() => {
+        this.addressList = this.$store.state.addressList.items
         this.loading = false
       })
     },

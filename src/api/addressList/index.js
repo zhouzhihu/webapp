@@ -1,34 +1,51 @@
 import wilddog from 'wilddog'
 
-var wilddogApp = wilddog.initializeApp({
+let wilddogApp = wilddog.initializeApp({
   authDomain : 'web-app.wilddogio.com',
   syncURL : 'https://web-app.wilddogio.com/addressList'
 });
 
 export function getALByType(type){
   return new Promise((resolve, reject) => {
-    wilddogApp.sync().ref(type).once("value", snapshot => {
-      resolve(snapshot.val())
+    wilddogApp.sync().once("value", snapshot => {
+      if("all" == type)
+        resolve(snapshot.val())
+      else{
+        let newValues = []
+        snapshot.forEach(snap => {
+          console.log(snap.val().favorite)
+          snap.val().favorite ? newValues.push(snap.val()) : ""
+        })
+        resolve(newValues)
+      }
     }, reject)
   })
 }
 
 export function watchList(type, cb){
-  wilddogApp.sync().ref(type).on("value", snapshot =>{
-    cb(snapshot.val())
+  wilddogApp.sync().on("value", snapshot =>{
+    if("all" == type)
+        cb(snapshot.val());
+    else{
+      let newValues = []
+      snapshot.forEach(snap => {
+        snap.val().favorite ? newValues.push(snap.val()) : ""
+      })
+      cb(newValues);
+    }
   })
 }
 
 function getAByType(type){
   return new Promise((resolve, reject) => {
-    wilddogApp.sync().ref(`${type}`).once("value", snapshot =>{
+    wilddogApp.sync().once("value", snapshot =>{
       resolve(snapshot.val());
     }, reject)
   })
 }
 
 function setAByType(type, addressList){
-  wilddogApp.sync().ref(`${type}`).update(addressList)
+  wilddogApp.sync().update(addressList)
 }
 
 export function toggleFavorite(type, id, active){
@@ -36,9 +53,9 @@ export function toggleFavorite(type, id, active){
     for(let i = 0;i < addressList.length; i++){
       if(id == addressList[i].id){
         if(active)
-          addressList[i].favorite = "true"
+          addressList[i].favorite = true
         else
-          addressList[i].favorite = "false"
+          addressList[i].favorite = false
       }
     }
     return addressList
