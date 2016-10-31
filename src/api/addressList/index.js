@@ -36,7 +36,7 @@ export function watchList(type, cb){
   })
 }
 
-function getAByType(type){
+function getAByType(){
   return new Promise((resolve, reject) => {
     wilddogApp.sync().once("value", snapshot =>{
       resolve(snapshot.val());
