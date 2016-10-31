@@ -44,8 +44,8 @@
     },
     mounted(){
       this.$on("item-click", (...parames) => {
-        let [type, id, active] = parames;
-        toggleFavorite(type, id, active).then(() => {
+        let [id, active] = parames;
+        toggleFavorite(id, active).then(() => {
           if(active)
             Message({message : "收藏成功!", duration : 1000})
           else

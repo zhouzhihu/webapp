@@ -40,7 +40,7 @@
     methods: {
       clickItem : function(){
         this.active = !this.active
-        this.dispatch("item-list", "item-click", this.type, this.item.id, this.active)
+        this.dispatch("item-list", "item-click", this.item.id, this.active)
       }
     },
     computed:{

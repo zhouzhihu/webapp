@@ -36,30 +36,22 @@ export function watchList(type, cb){
   })
 }
 
-function getAByType(){
+function getAddressList(){
   return new Promise((resolve, reject) => {
     wilddogApp.sync().once("value", snapshot =>{
-      resolve(snapshot.val());
+      resolve(snapshot);
     }, reject)
   })
 }
 
-function setAByType(type, addressList){
-  wilddogApp.sync().update(addressList)
-}
-
-export function toggleFavorite(type, id, active){
-  return getAByType(type).then(addressList =>{
-    for(let i = 0;i < addressList.length; i++){
-      if(id == addressList[i].id){
-        if(active)
-          addressList[i].favorite = true
-        else
-          addressList[i].favorite = false
-      }
-    }
-    return addressList
-  }).then(addressList => {
-    setAByType(type, addressList);
+export function toggleFavorite(id, active){
+  return getAddressList().then(snapshot =>{
+    let key = -1
+    snapshot.forEach(snap => {
+      id == snap.val().id ? key = snap.key() : -1
+    })
+    return key
+  }).then(key => {
+    wilddogApp.sync().child(key).update({"favorite" : active});
   })
 }
