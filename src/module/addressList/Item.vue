@@ -1,5 +1,5 @@
 <template>
-  <li class="news-item">
+  <li v-show="isShow" class="news-item">
     <span class="score" @click="clickItem">
       <i :class="favorite"></i>
     </span>
@@ -34,12 +34,14 @@
     },
     data(){
       return {
-        active : this.item.favorite ? true : false
+        active : this.item.favorite ? true : false,
+        isShow : true
       }
     },
     methods: {
       clickItem : function(){
         this.active = !this.active
+        "all" != this.type ? this.isShow = false : ""
         this.dispatch("item-list", "item-click", this.item.id, this.active)
       }
     },

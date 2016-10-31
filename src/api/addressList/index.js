@@ -13,7 +13,6 @@ export function getALByType(type){
       else{
         let newValues = []
         snapshot.forEach(snap => {
-          console.log(snap.val().favorite)
           snap.val().favorite ? newValues.push(snap.val()) : ""
         })
         resolve(newValues)
