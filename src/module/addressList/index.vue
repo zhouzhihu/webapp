@@ -1,9 +1,21 @@
 <template>
     <div class="news-view">
-      <div class="news-list-nav">
-        <div class="nav">
+      <div class="news-list-nav" mode="out-in">
+        <div v-if="!search" class="nav">
           <router-link to="/AddressList/all">所有联系人</router-link>
           <router-link to="/AddressList/favorite">我收藏的联系人</router-link>
+          <div class="icon">
+            <i class="el-icon-plus"></i>
+          </div>
+          <div class="icon" @click="toggleSearch">
+            <i class="el-icon-search"></i>
+          </div>
+        </div>
+        <div v-if="search" class="nav">
+          <input type="text" placeholder="请输入要搜内容" />
+          <span class="cancel" @click="toggleSearch">
+            <i class="el-icon-close"></i>
+          </span>
         </div>
       </div>
       <transition name="fade" mode="out-in">
@@ -22,12 +34,18 @@
     },
     data(){
       return {
-        loading: false
+        loading: false,
+        search: false
       }
     },
     computed: {
       activeType(){
         return this.$store.state.addressList.activeType
+      }
+    },
+    methods: {
+      toggleSearch : function(){
+        this.search = !this.search
       }
     }
   }
@@ -35,11 +53,8 @@
 <style lang="stylus" scoped>
     .news-view
       padding-top 45px
-    .news-list-nav, .news-list
-      background-color #fff
-      border-radius 2px
     .news-list-nav
-      padding 15px 30px
+      padding 15px 10px
       position fixed
       text-align center
       top 55px
@@ -48,6 +63,14 @@
       z-index 3
       box-shadow 0 1px 2px rgba(0,0,0,.1)
       background-color #58B7FF
+      .fade-enter-active
+        transition opacity .5s
+      .fade-leave-active
+        transition opacity .5s
+      .fade-enter
+        opacity 0
+      .fade-leave-active
+        opacity 0
       .nav
         max-width 800px
         box-sizing border-box;
@@ -62,4 +85,36 @@
           font-weight 400
         .disabled
           color #ccc
+        .icon
+          color #fff
+          display inline
+          float right
+          margin-left 10px
+          font-size 1.2em
+        .cancel
+          cursor pointer
+          position absolute
+          display inline-block
+          width 16px
+          right 15px
+          top 12px
+          bottom 0
+          color #c0ccda
+          font-size 16px
+          line-height 38px
+        input
+          display block
+          padding 3px 10px
+          box-sizing border-box
+          width 100%
+          height 28px
+          color #1f2d3d
+          background-color #fff
+          background-image none
+          border 1px solid #c0ccda
+          border-radius 4px
+          -webkit-transition border-color .2s cubic-bezier(.645,.045,.355,1)
+          transition border-color .2s cubic-bezier(.645,.045,.355,1)
+          outline none
+          line-height normal
 </style>

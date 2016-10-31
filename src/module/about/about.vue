@@ -58,6 +58,7 @@
         width 60px
         height 60px
         border-radius 50%
+        border 5px solid #fff
       .text
         color #fff
         font-weight bold
