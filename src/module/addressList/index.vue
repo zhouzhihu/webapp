@@ -12,10 +12,12 @@
           </div>
         </div>
         <div v-if="search" class="nav">
-          <input type="text" placeholder="请输入要搜内容" />
-          <span class="cancel" @click="toggleSearch">
-            <i class="el-icon-close"></i>
-          </span>
+          <div class="input">
+            <input type="text" placeholder="请输入要搜索联系人" />
+          </div>
+          <div @click="toggleSearch">
+            <i class="el-icon-search"></i>
+          </div>
         </div>
       </div>
       <transition name="fade" mode="out-in">
@@ -77,7 +79,7 @@
         margin 0px auto
         text-align center
         a
-          color:#ccc
+          color:rgba(255,255,255,0.8)
           margin 0 0.2em
           font-size 12px
         .router-link-active
@@ -85,23 +87,13 @@
           font-weight 400
         .disabled
           color #ccc
+        div
+          display inline
         .icon
           color #fff
-          display inline
           float right
           margin-left 10px
           font-size 1.2em
-        .cancel
-          cursor pointer
-          position absolute
-          display inline-block
-          width 16px
-          right 15px
-          top 12px
-          bottom 0
-          color #c0ccda
-          font-size 16px
-          line-height 38px
         input
           display block
           padding 3px 10px

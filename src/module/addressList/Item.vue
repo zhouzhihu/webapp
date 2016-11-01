@@ -15,8 +15,6 @@
 </template>
 <script>
   import emitter from '../../mixins/emitter'
-  import {Icon} from 'element-ui'
-  import 'element-ui/lib/theme-default/icon.css'
 
   export default {
     name: 'item',

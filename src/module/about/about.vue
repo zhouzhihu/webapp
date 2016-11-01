@@ -24,16 +24,7 @@
 </template>
 
 <script>
-  import {Icon} from 'element-ui'
-  import 'element-ui/lib/theme-default/icon.css'
-
   export default {
-    data(){
-      return {about : 'about'}
-    },
-    created : function(){
-      this.about = "created"
-    },
     beforeMount(){
       this.$Progress.start()
     },

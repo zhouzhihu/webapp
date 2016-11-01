@@ -14,7 +14,6 @@
   import Spinner from '../../components/Spinner.vue'
   import {watchList, toggleFavorite} from '../../api/addressList'
   import {Message} from 'element-ui'
-  import 'element-ui/lib/theme-default/message.css'
   import * as types from '../../store/modules/addressList/mutation-type'
 
   Vue.component(Message.name, Message);
@@ -56,13 +55,15 @@
   }
 </script>
 
-<style lang="stylus">
-  .news-list
-    position absolute
-    width 100%
-    transition all .5s cubic-bezier(.55,0,.1,1)
-    ul
-      list-style-type none
-      padding 0
-      margin 0
+<style lang="css">
+  .news-list {
+    position : absolute;
+    width: 100%;
+    transition: all .5s cubic-bezier(.55, 0, .1, 1);
+  }
+  .news-list ul{
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+  }
 </style>
