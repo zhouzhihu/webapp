@@ -8,6 +8,7 @@ module.exports = {
   //entry: utils.getEntries('./src/module/**/*.js'),
   entry: {
     app: './src/module/index/index.js',
+    element: 'element-ui/lib/theme-default/index.css',
     vendor: ['vue', 'vue-router']
   },
   output: {
@@ -49,6 +50,10 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue'
+      },
+      {
+        test:/\.css$/,
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader")
       },
       {
         test: /\.js$/,
