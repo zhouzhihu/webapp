@@ -21,6 +21,6 @@ export default new Router({
       ]
     },
     { path: '/About', component: About },
-    { path: '*', redirect: '/About' }
+    { path: '*', redirect: '/AddressList' }
   ]
 })
