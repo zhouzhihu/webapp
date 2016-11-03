@@ -15,7 +15,7 @@
             <div v-if="search">
               <el-row :gutter="5">
                 <el-col :span="18"><el-input placeholder="请输入要搜索联系人"></el-input></el-col>
-                <el-col :span="6"><div @click="toggleSearch"><el-button type="primary" icon="circle-cross">取消</el-button></div></el-col>
+                <el-col :span="6"><el-button @click.native="toggleSearch" type="primary" icon="circle-cross">取消</el-button></el-col>
               </el-row>
             </div>
         </div>

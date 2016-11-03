@@ -16,7 +16,7 @@
   import {Message} from 'element-ui'
   import * as types from '../../store/modules/addressList/mutation-type'
 
-  Vue.component(Message.name, Message);
+  Vue.component("Message", Message);
 
   export default {
     name: 'item-list',
