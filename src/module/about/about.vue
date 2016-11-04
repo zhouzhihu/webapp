@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <div class="header">
-      <img src='./img/about.jpg'/>
+      <img src='../../assets/img/about.jpg'/>
       <div class="text">追求卓越，成功就会在不经意间追上你！</div>
     </div>
     <div class="body">
@@ -42,7 +42,7 @@
       position relative
       height 150px
       text-align center
-      background-image url('./img/about-bj.png')
+      background-image url('../../assets/img/about-bj.png')
       background-size cover
       img
         margin 30px 0 15px 0

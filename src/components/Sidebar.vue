@@ -4,8 +4,8 @@
       <!--侧边栏头部-->
       <div class="sidebar-header">
         <div class="user">
-          <img src="http://7xqch8.com1.z0.glb.clouddn.com/4.pic_hd.jpg">
-          <span>yatessss</span>
+          <img src='../assets/img/about.jpg'/>
+          <span>点点</span>
         </div>
         <div class="function">
           <div class="function-sub">
