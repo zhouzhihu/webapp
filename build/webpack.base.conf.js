@@ -23,7 +23,8 @@ module.exports = {
       'vue': 'vue/dist/vue.js',
       'src': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
-      'components': path.resolve(__dirname, '../src/js/components')
+      'components': path.resolve(__dirname, '../src/js/components'),
+      'wilddog': 'wilddog/lib/wilddog-web-all.js'
     }
   },
   resolveLoader: {
