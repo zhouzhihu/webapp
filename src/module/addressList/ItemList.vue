@@ -13,10 +13,8 @@
   import Item from './Item.vue'
   import Spinner from '../../components/Spinner.vue'
   import {watchList, toggleFavorite} from '../../api/addressList'
-  import {Message} from 'element-ui'
   import * as types from '../../store/modules/addressList/mutation-type'
-
-  Vue.component("Message", Message);
+  import Toast from '../../components/toast/toast.js'
 
   export default {
     name: 'item-list',
@@ -46,9 +44,9 @@
         let [id, active] = parames;
         toggleFavorite(id, active).then(() => {
           if(active)
-            Message({message : "收藏成功!", duration : 1000})
+            Toast({message : "收藏成功!", duration : 1000})
           else
-            Message({message : "取消收藏成功！", duration : 1000})
+            Toast({message : "取消收藏成功！", duration : 1000})
         })
       })
     }
