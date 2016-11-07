@@ -22,13 +22,13 @@
   }
 </script>
 
-<style lang="css">
+<style scoped lang="css">
   .mint-tab-item {
     display: block;
     padding: 7px 0;
-    -webkit-box-flex: 1;
     -ms-flex: 1;
-    flex: 1
+    flex: 1;
+    -webkit-box-flex: 1;
   }
   .mint-tab-item-icon {
     width: 24px;

@@ -29,13 +29,12 @@
   }
 </script>
 
-<style lang="css">
+<style scoped lang="css">
   .mint-tabbar {
-    position: relative;
     background-color: #58B7FF;
-    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    display: -webkit-box;
     right: 0;
     bottom: 0;
     left: 0;
