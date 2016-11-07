@@ -1,6 +1,5 @@
 <template>
     <div class="news-list">
-      <Spinner :show="loading"></Spinner>
       <ul :show="!loading">
         <Item v-for="item in addressList" :key="item.id" :item="item" :type="type"></Item>
       </ul>
@@ -11,7 +10,6 @@
   import Vue from 'vue'
   import { mapGetters, mapActions } from 'vuex'
   import Item from './Item.vue'
-  import Spinner from '../../components/Spinner.vue'
   import {watchList, toggleFavorite} from '../../api/addressList'
   import * as types from '../../store/modules/addressList/mutation-type'
   import Toast from '../../components/toast/toast.js'
@@ -20,8 +18,7 @@
     name: 'item-list',
     componentName: 'item-list',
     components : {
-      Item,
-      Spinner
+      Item
     },
     props: {
       type: String
@@ -55,8 +52,8 @@
 
 <style lang="css">
   .news-list {
-    position : absolute;
     width: 100%;
+    padding-bottom: 50px;
     transition: all .5s cubic-bezier(.55, 0, .1, 1);
   }
   .news-list ul{

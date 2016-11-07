@@ -9,6 +9,7 @@
 
 <script>
   export default {
+    name : 'egd-toast',
     props: {
       message: String,
       iconClass: {

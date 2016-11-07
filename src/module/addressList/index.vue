@@ -2,20 +2,10 @@
     <div class="news-view">
       <div class="news-list-nav">
         <div class="nav">
-            <div class="main" v-if="!search">
-              <router-link to="/AddressList/all">所有联系人</router-link>
-              <router-link to="/AddressList/favorite">我收藏的联系人</router-link>
-              <div class="icon">
-                <i class="el-icon-plus"></i>
-              </div>
-              <div class="icon" @click="toggleSearch">
-                <i class="el-icon-search"></i>
-              </div>
-            </div>
-            <div v-if="search">
+            <div>
               <el-row :gutter="5">
                 <el-col :span="18"><el-input placeholder="请输入要搜索联系人"></el-input></el-col>
-                <el-col :span="6"><el-button @click.native="toggleSearch" type="primary" icon="circle-cross">取消</el-button></el-col>
+                <el-col :span="6"><el-button type="primary" icon="search">搜索</el-button></el-col>
               </el-row>
             </div>
         </div>
@@ -23,11 +13,28 @@
       <transition name="fade" mode="out-in">
         <router-view></router-view>
       </transition>
+      <EgdTabBar fixed class="news-list-bottom" :value="activeType">
+        <EgdTabItem id="all">
+          <img slot="icon" src="../../assets/img/all.png"/>
+          所有联系人
+        </EgdTabItem>
+        <EgdTabItem id="favorite">
+          <img slot="icon" src="../../assets/img/favorite.png"/>
+          我收藏的联系人
+        </EgdTabItem>
+        <EgdTabItem id="add">
+          <img slot="icon" src="../../assets/img/add.png"/>
+          添加联系人
+        </EgdTabItem>
+      </EgdTabBar>
     </div>
 </template>
 
 <script>
   import {Button as ElButton, Input as ElInput, Row as ElRow, Col as ElCol} from 'element-ui'
+  import EgdTabBar from '../../components/tabbar/tabbar.vue'
+  import EgdTabItem from '../../components/tab-item/tab-item.vue'
+
   export default {
     beforeMount(){
       this.$Progress.start()
@@ -36,25 +43,21 @@
       ElButton,
       ElInput,
       ElRow,
-      ElCol
+      ElCol,
+      EgdTabBar,
+      EgdTabItem
     },
     mounted(){
       this.$Progress.finish()
+      this.$on("egd-tabItem-click", (id) => {
+        this.$router.push("/AddressList/" + id)
+        this.activeType = this.$router.currentRoute.path.split('/')[2]
+      })
     },
     data(){
       return {
         loading: false,
-        search: false
-      }
-    },
-    computed: {
-      activeType(){
-        return this.$store.state.addressList.activeType
-      }
-    },
-    methods: {
-      toggleSearch : function(){
-        this.search = !this.search
+        activeType : 'all'
       }
     }
   }
@@ -93,4 +96,6 @@
             float right
             margin-left 10px
             font-size 1.2em
+    .news-list-bottom
+      height: 50px
 </style>

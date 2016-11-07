@@ -6,6 +6,7 @@ Vue.use(Router)
 import About from '../module/about/about.vue'
 import AddressList from '../module/addressList/index.vue'
 import createListView from '../module/addressList/CreateListView.js'
+import addAddressList from '../module/addressList/add.vue'
 
 export default new Router({
   mode: 'history',
@@ -17,7 +18,8 @@ export default new Router({
       children: [
         { path : '', redirect: '/AddressList/all'},
         { path : '/AddressList/all',component: createListView('all') },
-        { path : '/AddressList/favorite',component: createListView('favorite') }
+        { path : '/AddressList/favorite',component: createListView('favorite') },
+        { path : '/AddressList/add',component: addAddressList }
       ]
     },
     { path: '/About', component: About },

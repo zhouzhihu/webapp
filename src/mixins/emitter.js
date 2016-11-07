@@ -17,7 +17,6 @@ export default {
 
       while (parent && (!name || name !== componentName)) {
         parent = parent.$parent;
-
         if (parent) {
           name = parent.$options.componentName;
         }
