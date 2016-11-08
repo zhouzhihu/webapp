@@ -53,8 +53,7 @@
 
 <style lang="stylus">
   .news-item
-    background-color #fff
-    padding 20px 30px 20px 80px
+    padding 5px 10px 5px 70px
     border-bottom 1px solid #eee
     position relative
     line-height 20px

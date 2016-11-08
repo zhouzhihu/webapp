@@ -12,7 +12,7 @@
   import Item from './Item.vue'
   import {watchList, toggleFavorite} from '../../api/addressList'
   import * as types from '../../store/modules/addressList/mutation-type'
-  import Toast from '../../components/toast/toast.js'
+  import Toast from '../../components/toast'
 
   export default {
     name: 'item-list',

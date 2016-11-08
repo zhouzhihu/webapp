@@ -10,7 +10,7 @@
   }
 </script>
 
-<style lang="css">
+<style scoped lang="css">
   .news-list {
     width: 100%;
     padding-bottom: 50px;
