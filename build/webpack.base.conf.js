@@ -8,7 +8,7 @@ module.exports = {
   //entry: utils.getEntries('./src/module/**/*.js'),
   entry: {
     app: './src/module/index/index.js',
-    element: 'element-ui/lib/theme-default/index.css',
+    element: './src/lib/element-ui.js',
     vendor: ['vue', 'vue-router']
   },
   output: {
