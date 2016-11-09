@@ -1,2 +1,2 @@
-import EgdTabBar from './tabbar.vue';
-module.exports = EgdTabBar;
+import EgdTabBar from './tabbar.vue'
+export default EgdTabBar

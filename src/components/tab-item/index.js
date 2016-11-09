@@ -1,2 +1,2 @@
-import EgdTabItem from './tab-item.vue';
-module.exports = EgdTabItem;
+import EgdTabItem from './tab-item.vue'
+export default EgdTabItem

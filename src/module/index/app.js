@@ -9,7 +9,7 @@ import Sidebar from '../../components/Sidebar.vue'
 sync(store, router)
 
 Vue.use(VueProgressBar, {
-  color: 'rgb(119, 182, 255)',
+  color: '#0e77f1',
   failedColor: 'red',
   height: '2px'
 })

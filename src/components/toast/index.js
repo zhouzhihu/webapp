@@ -1,2 +1,2 @@
-import Toast from './toast.js';
-module.exports = Toast;
+import Toast from './toast.js'
+export default Toast
