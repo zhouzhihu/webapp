@@ -15,21 +15,13 @@
     </transition>
     <vue-progress-bar></vue-progress-bar>
     <!--侧边栏-->
-    <Sidebar :show-sidebar.sync="showSidebar"></Sidebar>
+    <EgdSideBar :show-sidebar.sync="showSidebar"></EgdSideBar>
     <!--侧边栏遮罩层-->
     <div v-if="showSidebar" class="sidebar-mask" @click="hiddenBar"></div>
   </div>
 </template>
 
 <style lang="stylus">
-  @font-face {
-    font-family: 'iconfont';
-    src: url('//at.alicdn.com/t/font_1467357626_5109937.eot'); /* IE9*/
-    src: url('//at.alicdn.com/t/font_1467357626_5109937.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-            url('//at.alicdn.com/t/font_1467357626_5109937.woff') format('woff'), /* chrome、firefox */
-            url('//at.alicdn.com/t/font_1467357626_5109937.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-            url('//at.alicdn.com/t/font_1467357626_5109937.svg#iconfont') format('svg'); /* iOS 4.1- */
-  }
   body
     font-family Roboto, Helvetica, sans-serif
     font-size 15px

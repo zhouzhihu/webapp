@@ -4,7 +4,7 @@ import router from '../../router'
 import store from '../../store'
 import { sync } from 'vuex-router-sync'
 import VueProgressBar from 'vue-progressbar'
-import Sidebar from '../../components/Sidebar.vue'
+import EgdSideBar from '../../components/sidebar/sidebar.vue'
 
 sync(store, router)
 
@@ -33,7 +33,7 @@ const app = new Vue({
     }
   },
   components: {
-    Sidebar
+    EgdSideBar
   },
   store,
   router,

@@ -12,6 +12,7 @@
 
   export default {
     name : 'egd-tab-item',
+    componentName : 'egd-tab-item',
     props : ['id'],
     mixins : [emitter],
     methods : {

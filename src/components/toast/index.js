@@ -1,2 +1,2 @@
-import Toast from './toast.js'
-export default Toast
+import EgdToast from './toast.js'
+export default EgdToast
