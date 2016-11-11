@@ -1,5 +1,5 @@
 <template>
-  <li v-show="isShow" class="news-item" @touchstart="startDrag" @touchmove="onDrag" @touchend="endDrag" @click="hiddenDrag">
+  <li v-show="isShow" class="news-item">
     <span class="score" @click="clickItem">
       <i :class="favorite"></i>
     </span>
@@ -25,7 +25,6 @@
 </template>
 <script>
   import emitter from '../../mixins/emitter'
-  import swipe from '../../mixins/swipe'
   import EgdSwipe from '../../components/swipe'
 
   export default {
@@ -34,7 +33,7 @@
     components :{
       EgdSwipe
     },
-    mixins : [emitter, swipe],
+    mixins : [emitter],
     props: {
       item : {
         type : Object,

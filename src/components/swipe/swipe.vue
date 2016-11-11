@@ -49,40 +49,40 @@
     },
     mounted(){
       this.h = this.$parent.$el.clientHeight
-      this.$on("egd-swipe-startDrag", function (...params){
+      this.$parent.$el.addEventListener("touchstart", (evt) => {
+        evt = evt.changedTouches ? evt.changedTouches[0] : evt
         this.isShow = "block"
-        let [pageX, pageY] = params
+        let [pageX, pageY] = [evt.pageX, evt.pageY]
         this.start.x = pageX
         this.start.y = pageY
         this.dragging = true
       })
-      this.$on("egd-swipe-onDrag", function (...params){
+      this.$parent.$el.addEventListener("touchmove", (evt) => {
         if (this.opened) {
           !this.swiping && this.swipeMove(0);
           this.opened = false;
           return;
         }
         if(!this.dragging) return
-        let [pageX, pageY] = params
+        evt = evt.changedTouches ? evt.changedTouches[0] : evt
+        let [pageX, pageY] = [evt.pageX, evt.pageY]
         const offsetTop = pageY - this.start.y
         const offsetLeft = this.offsetLeft = pageX - this.start.x
-
         if ((offsetLeft < 0 && -offsetLeft > this.w) ||
                 (offsetLeft < 0 && !this.w)) {
           return
         }
-
         const y = Math.abs(offsetTop)
         const x = Math.abs(offsetLeft)
         let swiping = !(x < 5 || (x >= 5 && y >= x * 1.73))
         if (!swiping) return
         this.swipeMove(offsetLeft)
       })
-      this.$on("egd-swipe-endDrag", function(){
+      this.$parent.$el.addEventListener("touchend", (evt) => {
         if (!this.swiping) return
         this.swipeLeaveTransition(this.offsetLeft > 0 ? -1 : 1)
       })
-      this.$on("egd-swipe-hidden", function(){
+      this.$parent.$el.addEventListener("click", (evt) => {
         this.swipeMove()
       })
     }
