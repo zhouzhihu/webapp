@@ -1,5 +1,5 @@
 <template>
-  <div :style="{background:'#58B7FF',height: height + 'px',width: width + 'px',float: 'right',position: 'absolute',top:'0px',right:'0px',transform:'translate3d(' + width + 'px' + ', 0px, 0px)',display:isShow}">
+  <div class="egd-swipe" :style="{background:bgcolor,height: h + 'px',width: w + 'px',transform:'translate3d(' + w + 'px' + ', 0px, 0px)',display:isShow}">
     <slot></slot>
   </div>
 </template>
@@ -8,10 +8,19 @@
   export default {
     name : 'egd-swipe',
     componentName : 'egd-swipe',
+    props :{
+      bgcolor :{
+        type : String,
+        default : '#ccc'
+      },
+      w : {
+        type: String,
+        default : 0
+      }
+    },
     data(){
       return {
-        height : 0,
-        width : 0,
+        h : 0,
         isShow : 'none',
         start: { x: 0, y: 0 }
       }
@@ -21,15 +30,15 @@
         return `translate3d(${offset}px, 0, 0)`
       },
       swipeMove(offset = 0) {
-        this.$el.style.webkitTransform = this.translate3d(this.width + offset)
+        this.$el.style.webkitTransform = this.translate3d(parseInt(this.w) + offset)
         this.swiping = true
       },
       swipeLeaveTransition(direction) {
         setTimeout(() => {
           this.swipeLeave = true
           // left
-          if (direction > 0 && -this.offsetLeft > this.width * 0.4) {
-            this.swipeMove(-this.width)
+          if (direction > 0 && -this.offsetLeft > this.w * 0.4) {
+            this.swipeMove(-this.w)
             this.swiping = false
             this.opened = true
             return
@@ -39,8 +48,7 @@
       }
     },
     mounted(){
-      this.height = this.$parent.$el.clientHeight
-      this.width = this.$parent.$el.clientWidth/2
+      this.h = this.$parent.$el.clientHeight
       this.$on("egd-swipe-startDrag", function (...params){
         this.isShow = "block"
         let [pageX, pageY] = params
@@ -49,13 +57,18 @@
         this.dragging = true
       })
       this.$on("egd-swipe-onDrag", function (...params){
+        if (this.opened) {
+          !this.swiping && this.swipeMove(0);
+          this.opened = false;
+          return;
+        }
         if(!this.dragging) return
         let [pageX, pageY] = params
         const offsetTop = pageY - this.start.y
         const offsetLeft = this.offsetLeft = pageX - this.start.x
 
-        if ((offsetLeft < 0 && -offsetLeft > this.width) ||
-                (offsetLeft < 0 && !this.width)) {
+        if ((offsetLeft < 0 && -offsetLeft > this.w) ||
+                (offsetLeft < 0 && !this.w)) {
           return
         }
 
@@ -69,10 +82,17 @@
         if (!this.swiping) return
         this.swipeLeaveTransition(this.offsetLeft > 0 ? -1 : 1)
       })
+      this.$on("egd-swipe-hidden", function(){
+        this.swipeMove()
+      })
     }
   }
 </script>
 
-<style scoped lang="css">
-
+<style scoped lang="stylus">
+  .egd-swipe
+    float right
+    position absolute
+    top 0
+    right 0
 </style>

@@ -37,14 +37,22 @@
       })
     },
     mounted(){
-      this.$on("item-click", (...parames) => {
-        let [id, active] = parames;
+      this.$on("item-click", (...params) => {
+        let [id, active] = params;
         toggleFavorite(id, active).then(() => {
           if(active)
             EgdToast({message : "收藏成功!", duration : 1000})
           else
             EgdToast({message : "取消收藏成功！", duration : 1000})
         })
+      })
+      this.$on("item-delete", (...params) => {
+        let [id] = params
+        alert("delete = " + id)
+      })
+      this.$on("item-info", (...params) => {
+        let [id] = params
+        alert("info = " + id)
       })
     }
   }

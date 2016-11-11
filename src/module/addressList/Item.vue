@@ -1,5 +1,5 @@
 <template>
-  <li v-show="isShow" class="news-item" @touchstart="startDrag" @touchmove="onDrag" @touchend="endDrag">
+  <li v-show="isShow" class="news-item" @touchstart="startDrag" @touchmove="onDrag" @touchend="endDrag" @click="hiddenDrag">
     <span class="score" @click="clickItem">
       <i :class="favorite"></i>
     </span>
@@ -11,8 +11,15 @@
         <br/>
         电子邮件：{{item.mail}}
     </div>
-    <EgdSwipe>
-      <div @click='del(item.id)'>删除</div>
+    <EgdSwipe bgcolor="#58B7FF" w="70">
+      <div @click='del(item.id)' class="button">
+        <i class="el-icon-delete"></i>
+        <div class="text">删除</div>
+      </div>
+      <div @click='info(item.id)' class="button">
+        <i class="el-icon-document"></i>
+        <div class="text">详情</div>
+      </div>
     </EgdSwipe>
   </li>
 </template>
@@ -51,7 +58,10 @@
         this.dispatch("item-list", "item-click", this.item.id, this.active)
       },
       del : function(id){
-        alert(id)
+        this.dispatch("item-list", "item-delete", id)
+      },
+      info : function(id){
+        this.dispatch("item-list", "item-info", id)
       }
     },
     computed:{
@@ -65,12 +75,20 @@
 <style lang="stylus">
   .news-item
     padding 5px 10px 5px 70px
-    border-bottom 1px solid #eee
+    border-bottom 1px solid #ccc
     position relative
     line-height 20px
     overflow hidden
+    .button
+      font-size 12px
+      color #fff
+      padding 5px 20px
+      i
+        font-size 25px
+      .text
+        text-align center
     .title
-      border-bottom 1px solid #58B7FF
+      border-bottom 1px solid #f5f3f3
       padding: 5px
     .score
       color #58B7FF

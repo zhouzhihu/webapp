@@ -10,6 +10,9 @@ export default {
     },
     endDrag(){
       this.broadcast("egd-swipe", "egd-swipe-endDrag")
+    },
+    hiddenDrag(){
+      this.broadcast("egd-swipe", "egd-swipe-hidden")
     }
   }
 };
