@@ -49,23 +49,23 @@
     },
     mounted(){
       this.h = this.$parent.$el.clientHeight
-      this.$parent.$el.addEventListener("touchstart", (evt) => {
+      this.startDrag = (evt) => {
         evt = evt.changedTouches ? evt.changedTouches[0] : evt
         this.isShow = "block"
         let [pageX, pageY] = [evt.pageX, evt.pageY]
         this.start.x = pageX
         this.start.y = pageY
         this.dragging = true
-      })
-      this.$parent.$el.addEventListener("touchmove", (evt) => {
+      }
+      this.onDrag = (evt) => {
         if (this.opened) {
           !this.swiping && this.swipeMove(0);
           this.opened = false;
           return;
         }
         if(!this.dragging) return
-        evt = evt.changedTouches ? evt.changedTouches[0] : evt
-        let [pageX, pageY] = [evt.pageX, evt.pageY]
+        const e = evt.changedTouches ? evt.changedTouches[0] : evt;
+        let [pageX, pageY] = [e.pageX, e.pageY]
         const offsetTop = pageY - this.start.y
         const offsetLeft = this.offsetLeft = pageX - this.start.x
         if ((offsetLeft < 0 && -offsetLeft > this.w) ||
@@ -76,15 +76,21 @@
         const x = Math.abs(offsetLeft)
         let swiping = !(x < 5 || (x >= 5 && y >= x * 1.73))
         if (!swiping) return
+        evt.preventDefault();
         this.swipeMove(offsetLeft)
-      })
-      this.$parent.$el.addEventListener("touchend", (evt) => {
+      }
+      this.endDrag = (evt) => {
         if (!this.swiping) return
         this.swipeLeaveTransition(this.offsetLeft > 0 ? -1 : 1)
-      })
-      this.$parent.$el.addEventListener("click", (evt) => {
-        this.swipeMove()
-      })
+      }
+      this.$parent.$el.addEventListener("touchstart", this.startDrag)
+      this.$parent.$el.addEventListener("touchmove", this.onDrag)
+      this.$parent.$el.addEventListener("touchend", this.endDrag)
+    },
+    destroyed(){
+      this.$parent.$el.removeEventListener("touchstart", this.startDrag)
+      this.$parent.$el.removeEventListener("touchmove", this.onDrag)
+      this.$parent.$el.removeEventListener("touchend", this.endDrag)
     }
   }
 </script>
