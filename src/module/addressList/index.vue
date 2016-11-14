@@ -35,7 +35,7 @@
     mounted(){
       this.$Progress.finish()
       this.$on("egd-tabItem-click", (id) => {
-        this.$router.push("/AddressList/" + id)
+        this.$router.push(`/AddressList/${id}`)
         this.activeType = this.$router.currentRoute.path.split('/')[2]
       })
     },

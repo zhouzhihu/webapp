@@ -1,5 +1,8 @@
 <template>
     <div class="news-list">
+      <div class="loading" v-if="loading">
+        loading...
+      </div>
       <ul :show="!loading">
         <Item v-for="item in addressList" :key="item.id" :item="item" :type="type"></Item>
       </ul>
@@ -52,7 +55,7 @@
       })
       this.$on("item-info", (...params) => {
         let [id] = params
-        alert("info = " + id)
+        this.$router.push(`/AddressList/${this.type}/${id}`)
       })
     }
   }
@@ -63,6 +66,12 @@
     width: 100%;
     padding-bottom: 50px;
     transition: all .5s cubic-bezier(.55, 0, .1, 1);
+  }
+  .news-list .loading {
+    text-align:center;
+    position: fixed;
+    top: 40%;
+    left: 40%;
   }
   .news-list ul{
       list-style-type: none;

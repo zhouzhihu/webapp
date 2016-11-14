@@ -6,16 +6,32 @@
     </div>
     <div class="body">
       <div class="item">
-        <i class="el-icon-star-off"></i>
-        <span class="text">github地址：https://github.com/zhouzhihu</span>
+        <div class="name">电话号码</div>
+        <div class="line">
+          <i class="el-icon-upload"></i>
+        </div>
+        <div class="value">13560107927</div>
       </div>
       <div class="item">
-        <i class="el-icon-message"></i>
-        <span class="text">电 子 邮 件：web_study2004@163.com</span>
+        <div class="name">电子邮件</div>
+        <div class="line">
+          <i class="el-icon-date"></i>
+        </div>
+        <div class="value">web_study2004@163.com</div>
       </div>
       <div class="item">
-        <i class="el-icon-time"></i>
-        <span class="text">微&nbsp;&nbsp;&nbsp;信&nbsp;&nbsp;&nbsp;号：wiki2008</span>
+        <div class="name">微信号</div>
+        <div class="line">
+          <i class="el-icon-circle-check"></i>
+        </div>
+        <div class="value">Wiki2008</div>
+      </div>
+      <div class="item">
+        <div class="name">QQ号码</div>
+        <div class="line">
+          <i class="el-icon-setting"></i>
+        </div>
+        <div class="value">365218616</div>
       </div>
     </div>
     <div class="bottom">
@@ -38,6 +54,7 @@
 
 <style lang="stylus" scoped>
   .about
+    overflow hidden
     .header
       position relative
       height 150px
@@ -56,14 +73,20 @@
     .body
       height 100%
       .item
-        background-color #fff
-        height 50px
-        border-bottom 1px solid #eee
-        i
-          color #58B7FF
-          margin 15px 10px
-          font-size 1.5em
-          vertical-align middle
-        span
-          font-size 12px
+        width 100%
+        .name
+          padding 10px
+          font-weight bold
+        .line
+          border-bottom 1px solid #f3f3f3
+          position relative
+          i
+            position: absolute;
+            right: 5px;
+            top: -10px;
+            font-size: 20px;
+            color #FF4949
+        .value
+          padding 5px 5px 5px 10px
+          color #20a0ff
 </style>
