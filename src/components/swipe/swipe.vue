@@ -13,6 +13,10 @@
         type : String,
         default : '#ccc'
       },
+      prefix: {
+        type : String,
+        default : ''
+      },
       w : {
         type: String,
         default : 0
@@ -54,7 +58,7 @@
     },
     mounted(){
       this.h = this.$parent.$el.clientHeight
-      this.$rightEl = this.$parent.$el.querySelector(this.link)
+      this.$rightEl = document.querySelector("[id='" + this.prefix + "'] " +this.link)
       this.startDrag = (evt) => {
         evt = evt.changedTouches ? evt.changedTouches[0] : evt
         this.isShow = "block"

@@ -1,5 +1,5 @@
 <template>
-  <li v-show="isShow" class="news-item">
+  <li v-show="isShow" class="news-item" :id="item.id">
     <div id="info">
       <span class="score" @click="clickItem">
         <i :class="favorite"></i>
@@ -13,7 +13,7 @@
           电子邮件：{{item.mail}}
       </div>
     </div>
-    <EgdSwipe bgcolor="#58B7FF" w="70" link="#info">
+    <EgdSwipe bgcolor="#58B7FF" w="70" link="#info" :prefix="item.id">
       <div @click='del(item.id)' class="button">
         <i class="el-icon-delete"></i>
         <div class="text">删除</div>
