@@ -49,9 +49,10 @@
   .info
     position relative
     overflow hidden
-    width 100%
-    padding-bottom: 50px;
-    .head
+    margin: 5px;
+    border-radius 2%
+    background-color #fcfcfd
+  .head
       height 180px
       width 100%
       position relative

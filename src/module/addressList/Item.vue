@@ -1,17 +1,19 @@
 <template>
   <li v-show="isShow" class="news-item">
-    <span class="score" @click="clickItem">
-      <i :class="favorite"></i>
-    </span>
-    <div class="title">
-      {{item.name}}：{{item.desc}}
+    <div id="info">
+      <span class="score" @click="clickItem">
+        <i :class="favorite"></i>
+      </span>
+      <div class="title">
+        {{item.name}}：{{item.desc}}
+      </div>
+      <div class="meta">
+          手机号码：{{item.tel}}
+          <br/>
+          电子邮件：{{item.mail}}
+      </div>
     </div>
-    <div class="meta">
-        手机号码：{{item.tel}}
-        <br/>
-        电子邮件：{{item.mail}}
-    </div>
-    <EgdSwipe bgcolor="#58B7FF" w="70">
+    <EgdSwipe bgcolor="#58B7FF" w="70" link="#info">
       <div @click='del(item.id)' class="button">
         <i class="el-icon-delete"></i>
         <div class="text">删除</div>
@@ -78,6 +80,9 @@
     position relative
     line-height 20px
     overflow hidden
+    #info
+      transform translate3d(0px, 0px, 0px)
+      -webkit-transform translate3d(0px, 0px, 0px)
     .button
       font-size 12px
       color #fff
@@ -94,7 +99,7 @@
       font-size 1.5em
       position absolute
       top 50%
-      left 0
+      left -70px
       width 80px
       text-align center
       margin-top -10px

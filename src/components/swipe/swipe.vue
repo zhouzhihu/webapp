@@ -16,6 +16,10 @@
       w : {
         type: String,
         default : 0
+      },
+      link : {
+        type: String,
+        default : 'right'
       }
     },
     data(){
@@ -31,6 +35,7 @@
       },
       swipeMove(offset = 0) {
         this.$el.style.webkitTransform = this.translate3d(parseInt(this.w) + offset)
+        this.$rightEl.style.webkitTransform = this.translate3d(parseInt(offset))
         this.swiping = true
       },
       swipeLeaveTransition(direction) {
@@ -49,6 +54,7 @@
     },
     mounted(){
       this.h = this.$parent.$el.clientHeight
+      this.$rightEl = this.$parent.$el.querySelector(this.link)
       this.startDrag = (evt) => {
         evt = evt.changedTouches ? evt.changedTouches[0] : evt
         this.isShow = "block"
