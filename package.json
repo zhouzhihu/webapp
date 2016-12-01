@@ -16,8 +16,8 @@
     "vue-server-renderer": "^2.0.0",
     "vuex": "^2.0.0",
     "vuex-router-sync": "^3.0.0",
-    "wilddog": "^2.1.0",
-    "element-ui": "^1.0.0-rc.7"
+    "element-ui": "^1.0.0-rc.7",
+    "axios": "^0.15.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
