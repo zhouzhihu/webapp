@@ -13,7 +13,7 @@
   import Vue from 'vue'
   import { mapGetters, mapActions } from 'vuex'
   import Item from './Item.vue'
-  import {watchList, toggleFavorite} from '../../api/addressList'
+  import {toggleFavorite} from '../../api/addressList'
   import * as types from '../../store/modules/addressList/mutation-type'
   import EgdToast from '../../components/toast'
 

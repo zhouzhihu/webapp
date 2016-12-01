@@ -3,7 +3,7 @@
       <div class="head">
         <div class="img">
           <img src='../../assets/img/about.jpg'/>
-          <div class="name">周志虎</div>
+          <div class="name">{{info.name}}</div>
         </div>
       </div>
       <div class="body">
@@ -12,14 +12,14 @@
           <div class="line">
             <i class="el-icon-upload"></i>
           </div>
-          <div class="value">13560107927</div>
+          <div class="value">{{info.tel}}</div>
         </div>
         <div class="item">
           <div class="name">电子邮件</div>
           <div class="line">
             <i class="el-icon-date"></i>
           </div>
-          <div class="value">web_study2004@163.com</div>
+          <div class="value">{{info.mail}}</div>
         </div>
         <div class="item">
           <div class="name">微信号</div>
@@ -40,8 +40,19 @@
 </template>
 
 <script>
+  import {getAddressList} from '../../api/addressList'
   export default {
-    name: 'info-item'
+    name: 'info-item',
+    data(){
+      return {
+        info : {}
+      }
+    },
+    beforeMount(){
+      getAddressList(this.$router.currentRoute.params.id).then(value => {
+        this.info = value
+      })
+    }
   }
 </script>
 
