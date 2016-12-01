@@ -7,6 +7,8 @@
 
 基于webpack+Vue2.0搭建webapp，结合[野狗](https://www.wilddog.com/)实现实时云通信，并自动构建在[DaoCloud](https://www.daocloud.io/)上！
 
+接口采用swagger-node部署，见[webapp-node](https://github.com/zhouzhihu/webapp-node)
+
 ##### 环境
  1. node v4.5.0
  2. npm 3.3.9
