@@ -1,6 +1,7 @@
 var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
+var merge = require('webpack-merge')
 var projectRoot = path.resolve(__dirname, '../')
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
@@ -9,7 +10,8 @@ module.exports = {
   entry: {
     app: './src/module/index/index.js',
     element: './src/lib/element-ui.js',
-    vendor: ['vue', 'vue-router']
+    vendor: utils.getDependencies(),
+    components: utils.getComponentsEntries('./src/components/**/index.js')
   },
   output: {
     path: config.build.assetsRoot,
@@ -19,41 +21,16 @@ module.exports = {
   resolve: {
     extensions: ['', '.js'],
     fallback: [path.join(__dirname, '../node_modules')],
-    alias: {
-      'vue': 'vue/dist/vue.js',
-      'src': path.resolve(__dirname, '../src'),
-      'assets': path.resolve(__dirname, '../src/assets'),
-      'components': path.resolve(__dirname, '../src/js/components')
-    }
+    alias: merge({'vue': 'vue/dist/vue.js'}, utils.getComponentsPath('./src/components/**/index.js'))
   },
   resolveLoader: {
     fallback: [path.join(__dirname, '../node_modules')]
   },
   module: {
-    preLoaders: [
-      /*
-      {
-        test: /\.vue$/,
-        loader: 'eslint',
-        include: projectRoot,
-        exclude: /node_modules/
-      }
-       ,{
-        test: /\.js$/,
-        loader: 'eslint',
-        include: projectRoot,
-        exclude: /node_modules/
-      }
-      */
-    ],
     loaders: [
       {
         test: /\.vue$/,
         loader: 'vue'
-      },
-      {
-        test:/\.css$/,
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader")
       },
       {
         test: /\.js$/,

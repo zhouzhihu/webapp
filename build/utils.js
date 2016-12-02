@@ -1,5 +1,6 @@
 var path = require('path')
 var config = require('../config')
+var packageConfig = require("../package.json")
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var glob = require('glob')
 
@@ -9,6 +10,36 @@ exports.getEntries = function (globPath) {
     var basename = path.basename(entry, path.extname(entry), 'router.js') // 过滤router.js
     entries[basename] = entry
   })
+  return entries;
+}
+
+exports.getComponentsEntries = function (globPath) {
+  var entries = []
+  glob.sync(globPath).forEach(function (entry) {
+    var tmp = entry.substr(0, entry.lastIndexOf("/"))
+    var basename = tmp.substr(tmp.lastIndexOf("/") + 1)
+    entries.push(basename)
+  })
+  return entries;
+}
+
+exports.getComponentsPath = function (globPath) {
+  var entries = {}
+  glob.sync(globPath).forEach(function (entry) {
+    var tmp = entry.substr(0, entry.lastIndexOf("/"))
+    var basename = tmp.substr(tmp.lastIndexOf("/") + 1)
+    var filePath = path.resolve(__dirname, "../" + entry)
+    entries[basename] = filePath
+  })
+  return entries;
+}
+
+exports.getDependencies = function(){
+  var entries = [];
+  for(var entry in packageConfig.dependencies){
+    if(entry && "element-ui" != entry)
+      entries.push(entry);
+  }
   return entries;
 }
 
@@ -44,6 +75,7 @@ exports.cssLoaders = function (options) {
 
   // http://vuejs.github.io/vue-loader/configurations/extract-css.html
   return {
+    css: generateLoaders(['css']),
     postcss: generateLoaders(['css']),
     less: generateLoaders(['css', 'less']),
     sass: generateLoaders(['css', 'sass?indentedSyntax']),
