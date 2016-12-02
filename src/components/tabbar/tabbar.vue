@@ -29,7 +29,7 @@
   }
 </script>
 
-<style scoped lang="css">
+<style lang="css">
   .mint-tabbar {
     background-color: #58B7FF;
     display: -ms-flexbox;

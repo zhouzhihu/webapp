@@ -15,7 +15,7 @@
   import Item from './Item.vue'
   import {toggleFavorite} from '../../api/addressList'
   import * as types from '../../store/modules/addressList/mutation-type'
-  import EgdToast from '../../components/toast'
+  import EgdToast from 'toast'
 
   export default {
     name: 'item-list',

@@ -21,8 +21,8 @@
 </template>
 
 <script>
-  import EgdTabBar from '../../components/tabbar'
-  import EgdTabItem from '../../components/tab-item'
+  import EgdTabBar from 'tabbar'
+  import EgdTabItem from 'tab-item'
 
   export default {
     beforeMount(){

@@ -27,7 +27,7 @@
 </template>
 <script>
   import emitter from '../../mixins/emitter'
-  import EgdSwipe from '../../components/swipe'
+  import EgdSwipe from 'swipe'
 
   export default {
     name: 'item',

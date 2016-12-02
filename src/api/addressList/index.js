@@ -16,7 +16,7 @@ export function getAddressList(id){
   })
 }
 
-export function toggleFavorite(id, active){
+export function toggleFavorite(id){
   return new Promise((resolve, reject) => {
     let _id = parseInt(id)
     axios.put('http://webapp-node.daoapp.io/addressList', {id: _id}).then(function (response) {
