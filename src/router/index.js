@@ -3,29 +3,41 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-import About from '../module/about/about.vue'
-import AddressList from '../module/addressList/index.vue'
 import createListView from '../module/addressList/CreateListView.js'
-import addAddressList from '../module/addressList/add.vue'
-import infoAddressList from '../module/addressList/info.vue'
+import infoAddressList from '../module/addressList/index.vue'
+
+const Home = resolve => require.ensure([], () => resolve(require('../module/index/home.vue')), 'home/home')
+const About = resolve => require.ensure([], () => resolve(require('../module/about/about.vue')), 'about/about')
 
 export default new Router({
   mode: 'history',
   scrollBehavior: () => ({ y: 0 }),
   routes: [
     {
+      path: '/Home',
+      component: Home
+    },
+    {
       path: '/AddressList',
-      component: AddressList,
+      component: infoAddressList,
       children: [
         { path : '', redirect: '/AddressList/all'},
         { path : '/AddressList/all',component: createListView('all') },
         { path : '/AddressList/favorite',component: createListView('favorite') },
-        { path : '/AddressList/add',component: addAddressList },
-        { path : '/AddressList/all/:id(\\d+)', component: infoAddressList},
-        { path : '/AddressList/favorite/:id(\\d+)', component: infoAddressList}
+        {
+          path : '/AddressList/add',
+          component: resolve => require.ensure([], () => resolve(require('../module/addressList/add.vue')), 'addressList/add')
+        },
+        {
+          path : '/AddressList/:id(\\d+)',
+          component: resolve => require.ensure([], () => resolve(require('../module/addressList/info.vue')), 'addressList/info')
+        }
       ]
     },
-    { path: '/About', component: About },
-    { path: '*', redirect: '/AddressList' }
+    {
+      path: '/About',
+      component: About
+    },
+    { path: '*', redirect: '/Home' }
   ]
 })

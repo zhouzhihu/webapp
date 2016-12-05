@@ -55,7 +55,7 @@
       })
       this.$on("item-info", (...params) => {
         let [id] = params
-        this.$router.push(`/AddressList/${this.type}/${id}`)
+        this.$router.push(`/AddressList/${id}`)
       })
     }
   }
