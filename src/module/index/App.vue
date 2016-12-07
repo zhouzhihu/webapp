@@ -58,7 +58,7 @@
         color #fff
       &.router-link-active
         color #fff
-        font-weight 400
+        border-bottom 1px solid #fff
       &:nth-child(6)
         margin-right 0
     .github

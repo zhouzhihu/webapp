@@ -5,15 +5,15 @@
       </transition>
       <EgdTabBar fixed class="news-list-bottom" :value="activeType">
         <EgdTabItem id="all">
-          <img slot="icon" src="../../assets/img/all.png"/>
+          <i slot="icon" class="fa fa-users fa-2x"></i>
           所有联系人
         </EgdTabItem>
         <EgdTabItem id="favorite">
-          <img slot="icon" src="../../assets/img/favorite.png"/>
+          <i slot="icon" class="fa fa fa-star-o fa-2x"></i>
           我收藏的联系人
         </EgdTabItem>
         <EgdTabItem id="add">
-          <img slot="icon" src="../../assets/img/add.png"/>
+          <i slot="icon" class="fa fa fa-plus fa-2x"></i>
           添加联系人
         </EgdTabItem>
       </EgdTabBar>

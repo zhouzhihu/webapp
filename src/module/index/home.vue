@@ -4,22 +4,44 @@
       <img src="../../assets/img/logo.png"/>
     </div>
     <div class="text">
-      <span>追求卓越，成功就会在不经意间追上你！</span>
+      <span>{{text}}</span>
     </div>
   </div>
 </template>
 
+<script>
+  export default {
+    data(){
+      return {
+        text : ''
+      }
+    },
+    mounted(){
+      let texts = Array.from("追求卓越，成功就会在不经意间追上你！")
+      let length = texts.length
+      let count = 0
+      let timer = setInterval(() => {
+        if(count > length - 1){
+          clearInterval(timer)
+          return
+        }
+        this.text = this.text.concat(texts[count])
+        count++
+      }, 200)
+    }
+  }
+</script>
+
 <style lang="stylus" scoped>
   .home
     position absolute
-    top 0px
+    top 50px
     left 0px
     right 0px
     bottom 0px
-    height 100%
     width 100%
     overflow hidden
-    background -webkit-gradient(linear, 100% 0%, 0% 100%, from(#fff), to(#20a0ff))
+    background -webkit-gradient(linear, 100% 0%, 0% 100%, from(#fff), to(#31abc2))
     .icon
       position absolute
       text-align center

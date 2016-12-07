@@ -15,11 +15,11 @@
     </div>
     <EgdSwipe bgcolor="#58B7FF" w="70" link="#info" :prefix="item.id">
       <div @click='del(item.id)' class="button">
-        <i class="el-icon-delete"></i>
+        <i class="fa fa-trash"></i>
         <div class="text">删除</div>
       </div>
       <div @click='info(item.id)' class="button">
-        <i class="el-icon-document"></i>
+        <i class="fa fa-sticky-note-o"></i>
         <div class="text">详情</div>
       </div>
     </EgdSwipe>
@@ -67,7 +67,7 @@
     },
     computed:{
       favorite : function(){
-        return this.active ? "el-icon-star-on" : "el-icon-star-off"
+        return this.active ? "fa fa-star" : "fa fa-star-o"
       }
     }
   }

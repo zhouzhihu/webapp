@@ -10,28 +10,28 @@
         <div class="item">
           <div class="name">电话号码</div>
           <div class="line">
-            <i class="el-icon-upload"></i>
+            <i class="fa fa-phone"></i>
           </div>
           <div class="value">{{info.tel}}</div>
         </div>
         <div class="item">
           <div class="name">电子邮件</div>
           <div class="line">
-            <i class="el-icon-date"></i>
+            <i class="fa fa-envelope"></i>
           </div>
           <div class="value">{{info.mail}}</div>
         </div>
         <div class="item">
           <div class="name">微信号</div>
           <div class="line">
-            <i class="el-icon-circle-check"></i>
+            <i class="fa fa-user-circle"></i>
           </div>
           <div class="value">Wiki2008</div>
         </div>
         <div class="item">
           <div class="name">QQ号码</div>
           <div class="line">
-            <i class="el-icon-setting"></i>
+            <i class="fa fa-qq"></i>
           </div>
           <div class="value">365218616</div>
         </div>
@@ -95,7 +95,7 @@
             position: absolute;
             right: 5px;
             top: -10px;
-            font-size: 20px;
+            font-size 22px
             color #FF4949
         .value
           padding 5px 5px 5px 10px
