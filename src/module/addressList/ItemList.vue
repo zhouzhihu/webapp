@@ -1,5 +1,5 @@
 <template>
-    <div class="news-list">
+    <div class="news-list" id="news">
       <div class="loading" v-if="loading">
         loading...
       </div>
@@ -40,6 +40,7 @@
       })
     },
     mounted(){
+      document.getElementById("news").style.height = window.screen.height - 155 + "px"
       this.$on("item-click", (...params) => {
         let [id, active] = params;
         toggleFavorite(id, active).then(() => {
@@ -63,9 +64,15 @@
 
 <style lang="css">
   .news-list {
+    position: relative;
     width: 100%;
+    height: 100%;
     padding-bottom: 50px;
-    transition: all .5s cubic-bezier(.55, 0, .1, 1);
+    background: #fff;
+    filter:alpha(opacity=90);
+    -moz-opacity:0.9;
+    -khtml-opacity: 0.9;
+    opacity: 0.9;
   }
   .news-list .loading {
     text-align:center;
@@ -74,8 +81,9 @@
     left: 40%;
   }
   .news-list ul{
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background: #fff;
   }
 </style>

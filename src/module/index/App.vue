@@ -27,8 +27,7 @@
     font-family Roboto, Helvetica, sans-serif
     font-size 15px
     margin 0
-    padding-top 55px
-
+    overflow hidden
   a
     color #34495e
     text-decoration none
@@ -77,7 +76,7 @@
     max-width 800px
     margin 0 auto
     position relative
-
+    padding-top 55px
   .fade-enter-active, .fade-leave-active
     transition all .2s ease
 
