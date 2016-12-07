@@ -15,7 +15,6 @@
     "vue-router": "^2.0.0",
     "vuex": "^2.0.0",
     "vuex-router-sync": "^3.0.0",
-    "element-ui": "^1.0.0-rc.7",
     "axios": "^0.15.2",
     "vue-progressbar": "^0.4.1"
   },
@@ -40,6 +39,7 @@
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "font-awesome": "^4.7.0",
     "function-bind": "^1.0.2",
     "glob": "^7.1.0",
     "html-loader": "^0.4.4",
