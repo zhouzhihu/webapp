@@ -5,12 +5,11 @@ var merge = require('webpack-merge')
 var projectRoot = path.resolve(__dirname, '../')
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-console.log(utils.getDependencies())
 module.exports = {
   //entry: utils.getEntries('./src/module/**/*.js'),
   entry: {
     app: './src/module/index/index.js',
-    element: './src/lib/element-ui.js',
+    awesome: './src/lib/font-awesome.js',
     vendor: utils.getDependencies(),
     components: utils.getComponentsEntries('./src/components/**/index.js')
   },

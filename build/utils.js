@@ -37,7 +37,7 @@ exports.getComponentsPath = function (globPath) {
 exports.getDependencies = function(){
   var entries = [];
   for(var entry in packageConfig.dependencies){
-    if(entry && "element-ui" != entry)
+    if(entry)
       entries.push(entry);
   }
   return entries;
