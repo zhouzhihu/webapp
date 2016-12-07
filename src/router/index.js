@@ -8,6 +8,7 @@ import infoAddressList from '../module/addressList/index.vue'
 
 const Home = resolve => require.ensure([], () => resolve(require('../module/index/home.vue')), 'home/home')
 const About = resolve => require.ensure([], () => resolve(require('../module/about/about.vue')), 'about/about')
+const Play = resolve => require.ensure([], () => resolve(require('../module/play/index.vue')), 'play/index')
 
 export default new Router({
   mode: 'history',
@@ -37,6 +38,10 @@ export default new Router({
     {
       path: '/About',
       component: About
+    },
+    {
+      path: '/Play',
+      component: Play
     },
     { path: '*', redirect: '/Home' }
   ]
