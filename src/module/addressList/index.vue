@@ -49,8 +49,6 @@
 </script>
 <style lang="stylus" scoped>
   .news-view
-    background: url(../../assets/img/home1.jpg) no-repeat
-    background-size 100% 100%
     overflow auto
     .news-list-bottom
       height: 50px
