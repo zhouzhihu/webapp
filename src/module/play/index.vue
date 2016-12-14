@@ -60,10 +60,6 @@
           {id : 1, name : '帝都', time : '03:03', dataUrl : 'http://ws.stream.qqmusic.qq.com/101835195.m4a?fromtag=46'},
           {id : 2, name : '花千骨', time : '03:42', dataUrl : 'http://ws.stream.qqmusic.qq.com/103540151.m4a?fromtag=46'},
           {id : 3, name : '到不了', time : '04:54', dataUrl : 'http://ws.stream.qqmusic.qq.com/108172613.m4a?fromtag=46'},
-          {id : 4, name : '演员', time : '04:21', dataUrl : 'http://ws.stream.qqmusic.qq.com/102636799.m4a?fromtag=46'},
-          {id : 4, name : '演员', time : '04:21', dataUrl : 'http://ws.stream.qqmusic.qq.com/102636799.m4a?fromtag=46'},
-          {id : 4, name : '演员', time : '04:21', dataUrl : 'http://ws.stream.qqmusic.qq.com/102636799.m4a?fromtag=46'},
-          {id : 4, name : '演员', time : '04:21', dataUrl : 'http://ws.stream.qqmusic.qq.com/102636799.m4a?fromtag=46'},
           {id : 4, name : '演员', time : '04:21', dataUrl : 'http://ws.stream.qqmusic.qq.com/102636799.m4a?fromtag=46'}
         ]
       }
