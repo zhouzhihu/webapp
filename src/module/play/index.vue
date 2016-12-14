@@ -16,8 +16,8 @@
         <div class="op">
           <i class="fa fa-random random"></i>
           <i class="fa fa-backward backward" v-on:click="backward"></i>
-          <i class="fa fa-play-circle" v-if="0 == status || 1 == status" v-on:click="pause"></i>
-          <i class="fa fa-pause-circle" v-if="2 === status" v-on:click="play"></i>
+          <i class="fa fa-play-circle" v-if="0 == status || 1 == status" v-on:click="play"></i>
+          <i class="fa fa-pause-circle" v-if="2 === status" v-on:click="pause"></i>
           <i class="fa fa-forward forward" v-on:click="forward"></i>
           <i class="fa fa-retweet retweet"></i>
         </div>
@@ -65,6 +65,9 @@
       }
     },
     mounted(){
+
+
+
       let playHeight = document.getElementById("play").style.height = window.screen.height - 55 + "px"
       let listHeight = document.getElementById("list").style.height = parseInt(playHeight) - document.getElementById("info").clientHeight + "px"
       document.getElementById("content").style.height = parseInt(listHeight) - document.getElementById("top").clientHeight + "px"
@@ -84,11 +87,11 @@
         this.forward()
       },
       pause : function(){
-        this.status = 2
+        this.status = 0
         document.getElementById('music').pause()
       },
       play : function(){
-        this.status = 0
+        this.status = 2
         document.getElementById('music').play()
       },
       list : function(type){
@@ -115,6 +118,9 @@
         this.time = (1 == m.length ? "0" + m : m) + ":" + (1 == s.length ? "0" + s : s)
         this.indicatorPosition = currentTime / duration * 100
       }
+    },
+    beforeDestroy(){
+      this.pause()
     }
   }
 </script>
