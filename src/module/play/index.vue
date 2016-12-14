@@ -51,7 +51,7 @@
     name: 'paly',
     data() {
       return {
-        status : 0,
+        status : 2,
         indicatorPosition : 0,
         curMusic : 1,
         time : '00:00',
