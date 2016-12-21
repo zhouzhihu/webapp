@@ -31,6 +31,9 @@
 # install dependencies
 npm install
 
+# build dll file
+npm run dll
+
 # serve in dev mode, with hot reload at localhost:8080
 npm run dev
 
