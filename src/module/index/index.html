@@ -3,7 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>起步-Starting</title>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+      <%=require('!!css-loader?name=dll/vendor.css!../../../dll/vendor.dll.css')%>
+    </style>
+    <script type="text/javascript" src="<%=require('!!file-loader?name=dll/vendor.js!../../../dll/vendor.dll.js')%>"></script>
   </head>
   <body>
   <div id="app">
