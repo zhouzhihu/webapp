@@ -2,15 +2,11 @@ var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
 var merge = require('webpack-merge')
-var projectRoot = path.resolve(__dirname, '../')
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   //entry: utils.getEntries('./src/module/**/*.js'),
   entry: {
     app: './src/module/index/index.js',
-    awesome: './src/lib/font-awesome.js',
-    vendor: utils.getDependencies(),
     components: utils.getComponentsEntries('./src/components/**/index.js')
   },
   output: {
@@ -35,16 +31,12 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
-        include: projectRoot,
+        include: config.projectSrc,
         exclude: /node_modules/
       },
       {
         test: /\.json$/,
         loader: 'json'
-      },
-      {
-        test: /\.html$/,
-        loader: 'html-loader'
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

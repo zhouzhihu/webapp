@@ -19,7 +19,7 @@
           <i class="fa fa-play-circle" v-if="0 == status || 1 == status" v-on:click="play"></i>
           <i class="fa fa-pause-circle" v-if="2 === status" v-on:click="pause"></i>
           <i class="fa fa-forward forward" v-on:click="forward"></i>
-          <i class="fa fa-retweet retweet"></i>
+          <i class="fa fa-retweet retweet" @click.native="popupVisible3 = true"></i>
         </div>
       </div>
       <div class="list" id="list">
@@ -47,11 +47,16 @@
 </template>
 
 <script>
+  const SINGLE = 0
+  const SEQUENTIAL = 1
+  const RANDOM = 2
   export default {
     name: 'paly',
     data() {
       return {
+        popupVisible3 : true,
         status : 2,
+        playMode: RANDOM,
         indicatorPosition : 0,
         curMusic : 1,
         time : '00:00',
@@ -65,9 +70,6 @@
       }
     },
     mounted(){
-
-
-
       let playHeight = document.getElementById("play").style.height = window.screen.height - 55 + "px"
       let listHeight = document.getElementById("list").style.height = parseInt(playHeight) - document.getElementById("info").clientHeight + "px"
       document.getElementById("content").style.height = parseInt(listHeight) - document.getElementById("top").clientHeight + "px"
@@ -84,7 +86,16 @@
     },
     methods: {
       playContinue : function(){
-        this.forward()
+        switch(this.playMode){
+          case SINGLE:
+            break
+          case SEQUENTIAL :
+            this.forward()
+            break
+          case RANDOM :
+            this.curMusic = Math.floor(1 + Math.round(Math.random()*(this.musicList.length - 1)))
+            break;
+        }
       },
       pause : function(){
         this.status = 0
@@ -127,6 +138,10 @@
 
 <style scoped lang="stylus">
   .play
+    .mint-popup-3
+      width 100%
+      height 100%
+      background-color #fff
     position relative
     width 100%
     height 100%

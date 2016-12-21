@@ -19,6 +19,8 @@ spinner.start()
 
 var assetsPath = path.join(config.build.assetsRoot, config.build.assetsSubDirectory)
 rm('-rf', assetsPath)
+var dllPath = path.join(config.build.assetsRoot, config.build.assetsDllDirectory)
+rm('-rf', dllPath)
 mkdir('-p', assetsPath)
 cp('-R', 'static/', assetsPath)
 
@@ -27,7 +29,7 @@ webpack(webpackConfig, function (err, stats) {
   if (err) throw err
   process.stdout.write(stats.toString({
     colors: true,
-    modules: true,
+    modules: false,
     children: false,
     chunks: false,
     chunkModules: false
