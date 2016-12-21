@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
+    "dll": "node build/dll.js && webpack --progress --colors --config ./build/webpack.dll.conf.js",
     "test": ""
   },
   "dependencies": {
@@ -43,7 +44,7 @@
     "function-bind": "^1.0.2",
     "glob": "^7.1.0",
     "html-loader": "^0.4.4",
-    "html-webpack-plugin": "^2.8.1",
+    "html-webpack-plugin": "^2.22.0",
     "http-proxy-middleware": "^0.17.2",
     "json-loader": "^0.5.4",
     "ora": "^0.3.0",
@@ -58,6 +59,7 @@
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.3",
     "webpack-hot-middleware": "^2.12.2",
-    "webpack-merge": "^0.14.1"
+    "webpack-merge": "^0.14.1",
+    "rimraf": "^2.5.4"
   }
 }
