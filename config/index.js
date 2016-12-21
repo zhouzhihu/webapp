@@ -2,11 +2,14 @@
 var path = require('path')
 
 module.exports = {
+  projectRoot: path.resolve(__dirname, '../'),
+  projectSrc: path.resolve(__dirname, '../src'),
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../assets/index.html'),
     assetsRoot: path.resolve(__dirname, '../assets'),
     assetsSubDirectory: 'static',
+    assetsDllDirectory: 'dll',
     assetsPublicPath: '/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
@@ -28,5 +31,10 @@ module.exports = {
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
     cssSourceMap: false
+  },
+  dll: {
+    dir: path.resolve(__dirname, '../dll'),
+    js: path.resolve(__dirname, '../dll/dll.js'),
+    css: path.resolve(__dirname, '../dll/dll.css')
   }
 }
