@@ -40,6 +40,9 @@ exports.getDependencies = function(){
     if(entry)
       entries.push(entry);
   }
+  glob.sync('./lib/**/index.js').forEach(function (entry) {
+    entries.push(entry);
+  })
   return entries;
 }
 
