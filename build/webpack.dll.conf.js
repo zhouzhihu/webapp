@@ -5,7 +5,7 @@ const config = require('../config')
 const utils = require('./utils')
 
 var dependencies = utils.getDependencies()
-dependencies.push('./src/lib/font-awesome.js')
+dependencies.push('./lib/font-awesome.js')
 
 module.exports = {
   entry: {
