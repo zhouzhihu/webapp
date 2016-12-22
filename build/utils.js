@@ -1,5 +1,5 @@
 var path = require('path')
-var config = require('../config')
+var config = require('./config')
 var packageConfig = require("../package.json")
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var glob = require('glob')

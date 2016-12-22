@@ -2,12 +2,12 @@
 var path = require('path')
 
 module.exports = {
-  projectRoot: path.resolve(__dirname, '../'),
-  projectSrc: path.resolve(__dirname, '../src'),
+  projectRoot: path.resolve(__dirname, '../../'),
+  projectSrc: path.resolve(__dirname, '../../src'),
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../assets/index.html'),
-    assetsRoot: path.resolve(__dirname, '../assets'),
+    index: path.resolve(__dirname, '../../assets/index.html'),
+    assetsRoot: path.resolve(__dirname, '../../assets'),
     assetsSubDirectory: 'static',
     assetsDllDirectory: 'dll',
     assetsPublicPath: '/',
@@ -33,6 +33,6 @@ module.exports = {
     cssSourceMap: false
   },
   dll: {
-    dir: path.resolve(__dirname, '../lib/dll')
+    dir: path.resolve(__dirname, '../../lib/dll')
   }
 }
