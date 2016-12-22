@@ -33,8 +33,6 @@ module.exports = {
     cssSourceMap: false
   },
   dll: {
-    dir: path.resolve(__dirname, '../dll'),
-    js: path.resolve(__dirname, '../dll/dll.js'),
-    css: path.resolve(__dirname, '../dll/dll.css')
+    dir: path.resolve(__dirname, '../lib/dll')
   }
 }
