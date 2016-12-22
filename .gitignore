@@ -1,5 +1,5 @@
 assets
 node_modules/
 webapp.iml
-dll/
+lib/dll/
 manifest.json
