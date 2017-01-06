@@ -32,6 +32,8 @@ module.exports = merge(baseWebpackConfig, {
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       title: '起步-Starting',
+      jsName: config.dll.jsName,
+      cssName: config.dll.cssName,
       filename: 'index.html',
       template: './src/module/index/index.html',
       inject: true

@@ -8,6 +8,7 @@ module.exports = {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../../assets/index.html'),
     assetsRoot: path.resolve(__dirname, '../../assets'),
+    assetsDllRoot: path.resolve(__dirname, '../../assets/dll'),
     assetsSubDirectory: 'static',
     assetsDllDirectory: 'dll',
     assetsPublicPath: '/',
@@ -33,6 +34,8 @@ module.exports = {
     cssSourceMap: false
   },
   dll: {
-    dir: path.resolve(__dirname, '../../lib/dll')
+    dir: path.resolve(__dirname, '../../lib/dll'),
+    jsName: 'dll/vendor.dll.js',
+    cssName: 'dll/vendor.dll.css'
   }
 }

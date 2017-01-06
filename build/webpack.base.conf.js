@@ -2,9 +2,9 @@ var path = require('path')
 var config = require('./config')
 var utils = require('./utils')
 var merge = require('webpack-merge')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-  //entry: utils.getEntries('./src/module/**/*.js'),
   entry: {
     app: './src/module/index/index.js',
     components: utils.getComponentsEntries('./src/components/**/index.js')
@@ -14,6 +14,12 @@ module.exports = {
     publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
     filename: '[name].js'
   },
+  plugins: [
+    new CopyWebpackPlugin([{
+      from: config.dll.dir,
+      to: config.build.assetsDllRoot
+    }])
+  ],
   resolve: {
     extensions: ['', '.js'],
     fallback: [path.join(__dirname, '../node_modules')],
