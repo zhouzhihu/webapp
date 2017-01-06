@@ -11,7 +11,6 @@
     "test": ""
   },
   "dependencies": {
-    "es6-promise": "^3.2.1",
     "vue": "^2.0.1",
     "vue-router": "^2.0.0",
     "vuex": "^2.0.0",
@@ -28,7 +27,9 @@
     "babel-preset-stage-2": "^6.11.0",
     "babel-register": "^6.0.0",
     "connect-history-api-fallback": "^1.1.0",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.25.0",
+    "es6-promise": "^3.2.1",
     "eslint": "^3.6.1",
     "eslint-config-standard": "^6.1.0",
     "eslint-friendly-formatter": "^2.0.5",
@@ -48,7 +49,7 @@
     "http-proxy-middleware": "^0.17.2",
     "json-loader": "^0.5.4",
     "ora": "^0.3.0",
-    "sass-loader": "^3.1.1",
+    "rimraf": "^2.5.4",
     "shelljs": "^0.7.4",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
@@ -59,7 +60,6 @@
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.3",
     "webpack-hot-middleware": "^2.12.2",
-    "webpack-merge": "^0.14.1",
-    "rimraf": "^2.5.4"
+    "webpack-merge": "^0.14.1"
   }
 }
