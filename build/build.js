@@ -19,7 +19,7 @@ spinner.start()
 
 var assetsPath = path.join(config.build.assetsRoot, config.build.assetsSubDirectory)
 rm('-rf', assetsPath)
-var dllPath = path.join(config.build.assetsRoot, config.build.assetsDllDirectory)
+var dllPath = path.join(config.build.assetsRoot, config.dll.assetsDllDirectory)
 rm('-rf', dllPath)
 mkdir('-p', assetsPath)
 cp('-R', 'static/', assetsPath)

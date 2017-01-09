@@ -39,9 +39,7 @@ var webpackConfig = merge(baseWebpackConfig, {
 
     new HtmlWebpackPlugin({
       title: '起步-Starting',
-      filename: process.env.NODE_ENV === 'testing'
-        ? 'index.html'
-        : config.build.index,
+      filename: 'index.html',
       jsName: config.dll.jsName,
       cssName: config.dll.cssName,
       template: './src/index.html',

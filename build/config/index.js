@@ -6,18 +6,15 @@ module.exports = {
   projectSrc: path.resolve(__dirname, '../../src'),
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../../assets/index.html'),
     assetsRoot: path.resolve(__dirname, '../../assets'),
-    assetsDllRoot: path.resolve(__dirname, '../../assets/dll'),
     assetsSubDirectory: 'static',
-    assetsDllDirectory: 'dll',
     assetsPublicPath: '/',
-    productionSourceMap: true,
+    productionSourceMap: false,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:
     // npm install --save-dev compression-webpack-plugin
-    productionGzip: false,
+    productionGzip: true,
     productionGzipExtensions: ['js', 'css']
   },
   dev: {
@@ -35,6 +32,8 @@ module.exports = {
   },
   dll: {
     dir: path.resolve(__dirname, '../../lib/dll'),
+    assetsDllDirectory: 'dll',
+    assetsDllRoot: path.resolve(__dirname, '../../assets/dll'),
     jsName: 'dll/vendor.dll.js',
     cssName: 'dll/vendor.dll.css'
   }

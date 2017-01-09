@@ -18,7 +18,7 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin([{
       from: config.dll.dir,
-      to: config.build.assetsDllRoot
+      to: config.dll.assetsDllRoot
     }]),
     new webpack.DllReferencePlugin({
       context: config.projectRoot,
