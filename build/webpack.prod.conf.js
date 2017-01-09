@@ -6,9 +6,6 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var env = process.env.NODE_ENV === 'testing'
-  ? require('../config/test.env')
-  : config.build.env
 
 var webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? '#source-map' : false,
@@ -26,7 +23,7 @@ var webpackConfig = merge(baseWebpackConfig, {
   plugins: [
     // http://vuejs.github.io/vue-loader/workflow/production.html
     new webpack.DefinePlugin({
-      'process.env': env
+      'process.env': config.build.env
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -61,12 +58,7 @@ var webpackConfig = merge(baseWebpackConfig, {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       names: [ 'components']
-    }),
-    new webpack.DllReferencePlugin({
-      context: config.projectRoot, // 指定一个路径作为上下文环境，需要与DllPlugin的context参数保持一致，建议统一设置为项目根目录
-      manifest: require('../manifest.json'), // 指定manifest.json
-      name: 'vendor_library',  // 当前Dll的所有内容都会存放在这个参数指定变量名的一个全局变量下，注意与DllPlugin的name参数保持一致
-    }),
+    })
   ]
 })
 

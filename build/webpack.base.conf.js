@@ -1,4 +1,5 @@
 var path = require('path')
+var webpack = require('webpack')
 var config = require('./config')
 var utils = require('./utils')
 var merge = require('webpack-merge')
@@ -18,7 +19,12 @@ module.exports = {
     new CopyWebpackPlugin([{
       from: config.dll.dir,
       to: config.build.assetsDllRoot
-    }])
+    }]),
+    new webpack.DllReferencePlugin({
+      context: config.projectRoot,
+      manifest: require('../manifest.json'),
+      name: 'vendor_library'
+    })
   ],
   resolve: {
     extensions: ['', '.js'],
