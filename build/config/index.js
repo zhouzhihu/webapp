@@ -5,7 +5,7 @@ module.exports = {
   projectRoot: path.resolve(__dirname, '../../'),
   projectSrc: path.resolve(__dirname, '../../src'),
   build: {
-    env: require('./prod.env'),
+    env: require('./env/prod.env.js'),
     assetsRoot: path.resolve(__dirname, '../../assets'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
@@ -18,7 +18,7 @@ module.exports = {
     productionGzipExtensions: ['js', 'css']
   },
   dev: {
-    env: require('./dev.env'),
+    env: require('./env/dev.env.js'),
     port: 8080,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
@@ -34,7 +34,7 @@ module.exports = {
     dir: path.resolve(__dirname, '../../lib/dll'),
     assetsDllDirectory: 'dll',
     assetsDllRoot: path.resolve(__dirname, '../../assets/dll'),
-    jsName: 'dll/vendor.dll.js',
-    cssName: 'dll/vendor.dll.css'
+    jsName: '/dll/vendor.dll.js',
+    cssName: '/dll/vendor.dll.css'
   }
 }
