@@ -44,7 +44,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         : config.build.index,
       jsName: config.dll.jsName,
       cssName: config.dll.cssName,
-      template: './src/module/index/index.html',
+      template: './src/index.html',
       inject: true,
       minify: {
         removeComments: true,

@@ -26,11 +26,11 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.NoErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      title: '起步-Starting',
+      title: '起步-Starting(开发环境)',
       jsName: config.dll.jsName,
       cssName: config.dll.cssName,
       filename: 'index.html',
-      template: './src/module/index/index.html',
+      template: './src/index.html',
       inject: true
     })
   ]
