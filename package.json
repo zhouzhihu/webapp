@@ -16,6 +16,7 @@
     "vuex": "^2.0.0",
     "vuex-router-sync": "^3.0.0",
     "axios": "^0.15.2",
+    "es6-promise": "^3.2.1",
     "vue-progressbar": "^0.4.1"
   },
   "devDependencies": {
@@ -29,7 +30,6 @@
     "connect-history-api-fallback": "^1.1.0",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.25.0",
-    "es6-promise": "^3.2.1",
     "eslint": "^3.6.1",
     "eslint-config-standard": "^6.1.0",
     "eslint-friendly-formatter": "^2.0.5",
